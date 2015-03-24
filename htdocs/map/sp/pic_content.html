@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/themes.css" />
+		<link rel="stylesheet" href="css/jcarousel.basic.css" />
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+		<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+		
+
+	</head>
+	<body>
+		 <!--顶部LOGO、MENU等的容器开始 -->
+		<div class="header">
+			<div class="logo"><img src="images/logo.jpg"></div>
+			<div class="menu">
+				<div class="line"></div>
+				<ul class="menu_list">
+						<li>
+							<a href="index.html" class="btn">
+								首  页
+							</a>
+						</li>
+						<li>
+							<a href="list.html" class="btn">
+								资讯中心
+							</a>
+							<div class="sublist_1 sublist">
+								<ul class="clearfix">
+									<li>
+										<a href="list.html">公司新闻</a>|
+									</li>
+									<li>
+										<a href="list.html">部门新闻</a>|
+									</li>
+									<li>
+										<a href="list.html">部门新闻</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="video_list.html" class="btn">
+								视频中心
+							</a>
+						</li>
+						<li>
+							<a href="pic_list.html" class="btn">
+								部门活动
+							</a>
+						</li>
+				</ul>
+			</div>
+			
+			<script>
+				/*顶部菜单代码*/
+				
+				/*一级当前初始化*/
+				
+				var m_l = $(window).width()/2-538/2;
+//				console.log( $('.menu_list').width(),'m_l')
+				$('.menu_list').css('margin-left',m_l+'px')
+				if($('.header .menu_list>li.on').length>0){
+			  		
+			  		$('.header .line').animate({left:$('.header .menu_list>.on').offset().left},'300')
+			  		$('.header .line').css('left',$($('.header .menu_list >li.on').get(0)).offset().left)
+			  		
+			  	}else{
+			  		console.log($('.header .menu_list').offset().left)
+			  		$('.header .line').css('left',$('.header .menu_list').offset().left)
+			  	}
+				/*一级展开*/
+				$('.header .menu_list>li').hover(
+					 function () {
+					 	$('.sublist_'+$('.header .menu_list li').index(this)).finish()
+					    $('.line').animate({left:$(this).offset().left},'100')
+					    $('.sublist_'+$('.header .menu_list li').index(this)).fadeIn()
+					  },
+					  function () {
+					  	$('.line').finish()
+					  	if($('.header .menu_list>li.on').length>0){
+					  		
+					  		$('.line').animate({left:$('.header .menu_list>li.on').offset().left},'300')
+					  		
+					  	}else{
+					  		$('.line').delay(300).animate({left:$($('.header .menu_list li').get(0)).offset().left},'300')
+					  	}
+					    $('.sublist_'+$('.header .menu_list li').index(this)).delay(800).fadeOut(300)
+					  }
+				)
+				/*二级对齐*/
+				$('.sublist').each(function(i,e){
+					var e_ul = $(e).find('ul');
+					var frist = $($('.header .btn').get(i+1))
+					var ul_w = e_ul.children().length*102
+					var left = frist.position().left +(frist.width()/2-ul_w/2)
+					console.log('dd',$('.menu_list').position().left)
+					e_ul.css('margin-left',left+'px')
+				})
+				</script>
+		</div>
+		<!--顶部LOGO、MENU等的容器结束 -->
+		<!--菜单导航的容器开始-->
+		<div class="nav">
+			<img src="images/list_page_icon.png">&nbsp;您现在的位置： <a href="">首页</a> > 资讯中心
+		</div>
+		<!--菜单导航的容器结束-->
+		<!--主体内容的容器开始-->
+		<div class="content list_page">
+			<!--图片详细页部分开始 -->
+                <div class="gallery">
+                	<dl class="gallery_title">
+                    	<dt>新感观领秀中级车雷霆出击</dt>
+                        <dd>来源：<span>广汽丰田</span>作者：<span>赵静</span>日期：<span>2014-07-03</span></dd>
+                    </dl>
+                    
+				   <!--大图部分开始 -->
+                    <dl class="gallery_bPic">
+                    	<dt><img alt="" src="images/imgddd.jpg"/></dt>
+                        <dd></dd>
+                    </dl>
+				   <!--大图部分结束 -->
+                   
+                   
+				   <!--小图部分开始 -->
+                	<div class="picScroll clearfix">
+                    	<div class="picScrollContent">
+                            <ul>							
+                                <li><a class="on" href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                                <li><a href="javascript:;"><img src="images/imgddd.jpg" /></a></li>
+                            </ul>
+                        </div>
+                        <a class="prev"><img alt="" src="images/gallery_left_bt.gif" /></a>
+                        <a class="next"><img alt="" src="images/gallery_right_bt.gif" /></a>
+                    </div>
+			  	  <!--小图部分结束 -->
+					<script type="text/javascript">
+						jQuery(".picScroll").slide({ mainCell:"ul",autoPlay:false,effect:"left", vis:4, scroll:1, autoPage:true, pnLoop:false });
+						var l = $(".picScroll li").length
+						if(l<10){
+							l = '0'+l
+						}
+						$('.gallery_bPic dd').html('<span>01</span>&nbsp;/&nbsp;'+l)
+						$(".picScroll li").click(function(){
+							var img = $(this).find('a img').attr('src')
+							$('.gallery_bPic img').attr('src',img)
+							$(".picScroll li a").removeClass('on')
+							$(this).find('a').addClass('on')
+							var index = $(".picScroll li").index(this)+1;
+							var l = $(".picScroll li").length
+							if(l<10){
+								l = '0'+l
+							}
+							if(index<10)
+							{
+								index = '0'+index
+							}
+							$('.gallery_bPic dd').html('<span>'+index+'</span>&nbsp;/&nbsp;'+l)
+						})
+                    </script>
+                </div>
+			    <!--图片详细页部分结束 -->
+		</div>
+		<!--主体内容等的容器结束-->
+		<!--底部的容器开始-->
+		<div class="footer">
+				Copyright&copy;2014 广汽丰田汽车有限公司 版权所有粤ICP备06028948号
+			</div>
+		<!--底部的容器结束-->
+	</body>
+</html>

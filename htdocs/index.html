@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>放鸡岛微官网</title>
+<link rel="stylesheet" href="css/amazeui.min.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+
+<body>
+<a href="javascript:void(0);" class="swipePanel-vitem-goto" onClick="secondPage();"><img src="i/goto.png"></a>
+<div id="swipePanel" class="swipePanel">
+<div class="swipePanel-nav2"></div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/amazeui.min.js"></script>
+<script src="js/hammer.min.js"></script>
+<script src="js/jquery.hammer.js"></script>
+<script src="js/swipePanel.js"></script>
+<script>
+    var base = 'http://platform.91zmt.com';
+    $.ajax({
+        url:base + '/interface/webcontent',
+        data:{
+            webcode:'fangjiwei',
+            template:1,
+            uid:2,
+            cid:0
+        },
+        cache:false,
+        type:'POST',
+        dataType:'JSON',
+        success:initPage
+    });
+    function initPage(res){
+    	console.log(res);
+    	//alert("get="+res);
+    	var htmlstr=""; //背景大图
+    	var navstr="<div class=\"swipePanel-nav\"><div class=\"am-g\">"; //导航栏
+    	$.each(res,function(ind,json) {
+    		htmlstr += "<div class=\"swipePanel-hitem\">";
+    		var i = ind+1;
+    		$.each(json, function(name,value){
+    			//后台发布大图
+    			if(name=="image"){
+    				htmlstr+="<div class=\"swipePanel-vitem\"> <img src=\""+base+value+"\" onClick=\"secondPage();\"/> </div>";
+    				if(json.attachments && json.attachments.length>0){
+    					for(var j=0;j<json.attachments.length;j++){
+    						var paddr = json.attachments[j].url;
+    						htmlstr+="<div class=\"swipePanel-vitem\"> <img src=\""+base+paddr+"\" onClick=\"secondPage();\"/> </div>";
+    					};
+    				}
+    				htmlstr+="</div>";
+    			}
+    			//后台下层栏目ID
+    			if(name=="cid")
+    				navstr+="<div class=\"am-u-sm-3 swipePanel-nav-item\" cid=\""+value+"\"> <img src=\"i/nav"+i+".png\"/><img src=\"i/nav"+i+"-f.png\"/></div>";
+    		});
+    		htmlstr+="</div>";
+        });
+        navstr+="</div></div>"; //导航栏封闭
+        $('#swipePanel').html(htmlstr+navstr);
+        
+    	$('#swipePanel').swipePanel();
+    }
+    function secondPage(){
+    	var cid = $('.swipePanel-nav-item.active').attr('cid');
+    	var url="secondPage.html?cid="+cid;
+    	window.location=url;
+    }
+</script>
+</body>
+</html>

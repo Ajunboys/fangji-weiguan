@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/amazeui.min.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+
+<body>
+<a href="firstPage.html" class="am-top-right-icon"><img src="i/sgoto.png"/></a>
+<div class="am-secondPage am-container" id="main-container">
+	<!--<div class="am-margin-bottom-xs am-secondPage-item">
+    	<a href="thirdPage.html"><img src="i/b1.jpg"/></a>
+        <div class="am-secondPage-item-cnt am-text-color-white">
+        	<div>
+                 <div class="am-text-lg">吉祥三宝套餐</div>
+                 <div class="am-cf">
+                    <div class="am-fl"><span class="am-inline-block am-location"><img src="i/icon-location.png"/>艳遇酒吧</span></div>
+                    <div class="am-fr"><span class="am-inline-block am-secondPage-item-cnt-icons" data-viewd><img src="i/icon-eyes.png"/><i>200</i></span><span class="am-inline-block am-secondPage-item-cnt-icons" data-favour><img src="i/icon-love.png"/><i>127</i></span></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-margin-bottom-xs am-secondPage-item">
+    	<a href="thirdPage.html"><img src="i/b2.jpg"/></a>
+        <div class="am-secondPage-item-cnt am-text-color-white">
+        	<div>
+                 <div class="am-text-lg">吉祥三宝套餐</div>
+                 <div class="am-cf">
+                    <div class="am-fl"><span class="am-inline-block am-location"><img src="i/icon-location.png"/>艳遇酒吧</span></div>
+                    <div class="am-fr"><span class="am-inline-block am-secondPage-item-cnt-icons" data-viewd><img src="i/icon-eyes.png"/><i>200</i></span><span class="am-inline-block am-secondPage-item-cnt-icons" data-favour><img src="i/icon-love.png"/><i>127</i></span></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-margin-bottom-xs am-secondPage-item">
+    	<a href="thirdPage.html"><img src="i/b3.jpg"/></a>
+        <div class="am-secondPage-item-cnt am-text-color-white">
+        	<div>
+                 <div class="am-text-lg">吉祥三宝套餐</div>
+                 <div class="am-cf">
+                    <div class="am-fl"><span class="am-inline-block am-location"><img src="i/icon-location.png"/>艳遇酒吧</span></div>
+                    <div class="am-fr"><span class="am-inline-block am-secondPage-item-cnt-icons" data-viewd><img src="i/icon-eyes.png"/><i>200</i></span><span class="am-inline-block am-secondPage-item-cnt-icons" data-favour><img src="i/icon-love.png"/><i>127</i></span></div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-margin-bottom-xs am-secondPage-item">
+    	<a href="#"><img src="i/b4.jpg"/></a>
+        <div class="am-secondPage-item-cnt am-text-color-white">
+        	<div>
+                 <div class="am-text-lg">吉祥三宝套餐</div>
+                 <div class="am-cf">
+                    <div class="am-fl"><span class="am-inline-block am-location"><img src="i/icon-location.png"/>艳遇酒吧</span></div>
+                    <div class="am-fr"><span class="am-inline-block am-secondPage-item-cnt-icons" data-viewd><img src="i/icon-eyes.png"/><i>200</i></span><span class="am-inline-block am-secondPage-item-cnt-icons" data-favour><img src="i/icon-love.png"/><i>127</i></span></div>
+                 </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/amazeui.min.js"></script>
+<script src="js/hammer.min.js"></script>
+<script>
+//获得地址栏参数
+function GetQueryString(name)
+{
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r!=null) return unescape(r[2]); return null;
+}
+var para_cid = GetQueryString("cid");
+
+var base = 'http://platform.91zmt.com';
+    $.ajax({
+        url:base + '/interface/webcontent',
+        data:{
+            webcode:'fangjiwei',
+            template:2,
+            uid:2,
+            cid:para_cid
+        },
+        cache:false,
+        type:'POST',
+        dataType:'JSON',
+        success:initPage
+    });
+    function initPage(res){
+    	console.log(res);
+
+    	var htmlstr=""; //餐套图片
+
+    	$.each(res,function(ind,json) {
+    		htmlstr += "<div class=\"am-margin-bottom-xs am-secondPage-item\">";
+    		var image = "";
+    		var title = "";
+    		var locat = "";
+    		var cid = "";
+    		var view = "";
+    		var like = "";
+    		
+    		$.each(json, function(name,value){
+    			//后台发布大图
+    			if(name=="image")
+    				image = value;
+    			//后台下层栏目ID
+    			if(name=="cid")
+    				cid = value;
+    			if(name=="title")
+    				title = value;
+    			if(name=="engname")
+    				locat = value;
+    			if(name=="view")
+    				view = value;
+    			if(name=="like")
+    				like = value;
+    		});
+    		
+    		htmlstr += "<a href=\"thirdPage.html?pid="+para_cid+"&cid="+cid+"\"><img src=\""+base+image+"\"/></a>"+
+        		"<div class=\"am-secondPage-item-cnt am-text-color-white\">"+
+        		"<div>"+
+                "<div class=\"am-text-lg\">"+title+"</div>"+
+                "<div class=\"am-cf\">"+
+                "<div class=\"am-fl\"><span class=\"am-inline-block am-location\"><img src=\"i/icon-location.png\"/>"+locat+"</span></div>"+
+                "<div class=\"am-fr\"><span class=\"am-inline-block am-secondPage-item-cnt-icons\" data-viewd><img src=\"i/icon-eyes.png\"/><i>"+view+"</i></span><span class=\"am-inline-block am-secondPage-item-cnt-icons\" data-favour><img src=\"i/icon-love.png\"/><i>"+like+"</i></span></div>"+
+                "</div></div></div>";
+    		
+    		htmlstr+="</div>";
+        });
+
+        $('#main-container').html(htmlstr);
+    }
+</script>
+</body>
+</html>

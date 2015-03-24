@@ -1,0 +1,78 @@
+@charset "utf-8"
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,select{font-family:"微软雅黑","Microsoft YaHei";}
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	-ms-touch-action: none;
+}
+
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+body,html  {
+	width: 100%;
+	height: 100%;
+}
+
+			#wrapper {
+				width: 100%;
+				height: 100%;
+					position: absolute;
+					z-index: 1;
+					background: #62BECB;
+					overflow: hidden;
+				}
+				
+				#scroller {
+					position: absolute;
+					z-index: 1;
+					-webkit-tap-highlight-color: rgba(0,0,0,0);
+					-webkit-transform: translateZ(0);
+					-moz-transform: translateZ(0);
+					-ms-transform: translateZ(0);
+					-o-transform: translateZ(0);
+					transform: translateZ(0);
+					-webkit-touch-callout: none;
+					-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+					-webkit-text-size-adjust: none;
+					-moz-text-size-adjust: none;
+					-ms-text-size-adjust: none;
+					-o-text-size-adjust: none;
+					text-size-adjust: none;
+				}
+			.pop{position: absolute; display: none; -webkit-transform: scale(0.8); z-index: 999; width: 350px; height: 181px; border-radius: 8px; background: #fff;}
+			.pop:after {
+				    border-color: #f8f1e7 transparent;
+				    border-style: solid;
+				    border-width: 15px 15px 0;
+				    bottom: -15px;
+				    content: "";
+				    display: block;
+				    left: 49%;
+				    position: absolute;
+				    width: 0;
+				}
+			.pop p{font-size: 2.5em; margin-left: 20px; margin-top: 20px; color:#ff0000;}
+			.pop .txt{font-size: 16px; padding: 8px 17px; color: #333;}
+			.pop .j_img{position: absolute;right: -3%;top: 64px;}
+			.pop .j_img img{width: 33%;}
+			.pop ul{position: absolute; height: 53px; background: #f8f1e7; width: 100%; bottom: 0;200px; border-radius: 8px; }
+			.pop svg {float: left; margin-right: 10px;}
+			.pop li{line-height: 37px;float: left; width: 33%;height: 53px; padding:3% 5%; font-size: 14px; border-right: 3px #e6dfd5 solid; }
+			.pop li a{color: #9e9e9e;}
+			.pop .distance{position: absolute; right: 30px; top: 30px; color: #9e9e9e;}
+			.pop li:last-child{border-right: 0;}
+			.btn{position: absolute; z-index: 9999;}
+			#btnmain{position: absolute; top: 0; left: 0;}
+			#path{position: absolute; top: 0; left: 0;}

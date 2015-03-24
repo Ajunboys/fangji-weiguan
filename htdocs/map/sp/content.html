@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/themes.css" />
+		<link rel="stylesheet" href="css/jcarousel.basic.css" />
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+		<script type="text/javascript" src="js/jcarousel.basic.js"></script>
+
+	</head>
+	<body>
+		 <!--顶部LOGO、MENU等的容器开始 -->
+		<div class="header">
+			<div class="logo"><img src="images/logo.jpg"></div>
+			<div class="menu">
+				<div class="line"></div>
+				<ul class="menu_list">
+						<li>
+							<a href="index.html" class="btn">
+								首  页
+							</a>
+						</li>
+						<li>
+							<a href="list.html" class="btn">
+								资讯中心
+							</a>
+							<div class="sublist_1 sublist">
+								<ul class="clearfix">
+									<li>
+										<a href="list.html">公司新闻</a>|
+									</li>
+									<li>
+										<a href="list.html">部门新闻</a>|
+									</li>
+									<li>
+										<a href="list.html">部门新闻</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="video_list.html" class="btn">
+								视频中心
+							</a>
+						</li>
+						<li>
+							<a href="pic_list.html" class="btn">
+								部门活动
+							</a>
+						</li>
+				</ul>
+			</div>
+			
+			<script>
+				/*顶部菜单代码*/
+				
+				/*一级当前初始化*/
+				
+				var m_l = $(window).width()/2-538/2;
+//				console.log( $('.menu_list').width(),'m_l')
+				$('.menu_list').css('margin-left',m_l+'px')
+				if($('.header .menu_list>li.on').length>0){
+			  		
+			  		$('.header .line').animate({left:$('.header .menu_list>.on').offset().left},'300')
+			  		$('.header .line').css('left',$($('.header .menu_list >li.on').get(0)).offset().left)
+			  		
+			  	}else{
+			  		console.log($('.header .menu_list').offset().left)
+			  		$('.header .line').css('left',$('.header .menu_list').offset().left)
+			  	}
+				/*一级展开*/
+				$('.header .menu_list>li').hover(
+					 function () {
+					 	$('.sublist_'+$('.header .menu_list li').index(this)).finish()
+					    $('.line').animate({left:$(this).offset().left},'100')
+					    $('.sublist_'+$('.header .menu_list li').index(this)).fadeIn()
+					  },
+					  function () {
+					  	$('.line').finish()
+					  	if($('.header .menu_list>li.on').length>0){
+					  		
+					  		$('.line').animate({left:$('.header .menu_list>li.on').offset().left},'300')
+					  		
+					  	}else{
+					  		$('.line').delay(300).animate({left:$($('.header .menu_list li').get(0)).offset().left},'300')
+					  	}
+					    $('.sublist_'+$('.header .menu_list li').index(this)).delay(800).fadeOut(300)
+					  }
+				)
+				/*二级对齐*/
+				$('.sublist').each(function(i,e){
+					var e_ul = $(e).find('ul');
+					var frist = $($('.header .btn').get(i+1))
+					var ul_w = e_ul.children().length*102
+					var left = frist.position().left +(frist.width()/2-ul_w/2)
+					console.log('dd',$('.menu_list').position().left)
+					e_ul.css('margin-left',left+'px')
+				})
+				</script>
+		</div>
+		<!--顶部LOGO、MENU等的容器结束 -->
+		<!--菜单导航的容器开始-->
+		<div class="nav">
+			<img src="images/list_page_icon.png">&nbsp;您现在的位置： <a href="">首页</a> > 资讯中心
+		</div>
+		<!--菜单导航的容器结束-->
+		<!--主体内容的容器开始-->
+		<div class="content content_page">
+			<h2>
+				青春有颗不妥协的心，动感雷凌演绎极限震撼
+			</h2>
+			<div class="subtitle">
+				来源：广汽丰田&nbsp;&nbsp;作者：赵静&nbsp;&nbsp;日期：2014-11-17
+			</div>
+			<div class="content_bg">
+				<p>
+					青春有颗不妥协的心，动感雷凌演绎极限震撼
+					题记：
+					青春，要我们永不停歇的奔跑……
+					奔跑，奔跑，丢掉不完美的自我，挣破禁锢心灵的四壁，击碎险恶的湍流，让自己强大，强大！
+					无惧砸向头顶的巨石，无惧道路上的重重路障，
+					继续奔跑，奔跑，奔跑中释放胸膛中那颗，永不妥协的心脏！
+					——雷凌
+					    有这样一场演出，没有固定的舞台，没有固定的座位，甚至没有台词，没有夺目的男一号女一号，却引发了全球的瞩目和尖叫。有这样一场演出，你能够和演员一起呐喊，一起舞动，能够从任何喜欢的角度去欣赏和触碰表演，更能够在叩击心扉的声声鼓点中，释放自己最为本源的力量。它就是风靡全球的“极限震撼”，一场讴歌“不妥协”精神的划时代巨作。
+					     自6月6日晚上映以来，“2014极限震撼大中华巡演?广汽丰田雷凌上海站”场场爆满，它以全立体式的极限视觉震撼让魔都的年轻人，享受了一场场“不妥协”青春的视听饕餮大餐。而场外“史上最帅中级车”雷凌更是赢得了诸多信仰“不妥协”的年轻心灵的赞美。他们像欣赏“极限震撼”一样，用眼、用手、用心，去耐心咂摸雷凌，去感受这部饱蘸青春活力与“不妥协”内核的，梦之车！
+					雷凌，看到不妥协的心灵
+					     人们都说，在“极限震撼”的现场，你能够看到不妥协的自己。而这个自己，就是剧中的白衣男子。枪声响起，不停奔跑的他，一次次被击中，又一次次爬起。甩掉血衣，扔掉不完美的自己，继续奔跑、向前，并且变得愈发坚定。白衣人的隐喻，并不晦涩。奔跑，粉碎一切的不完美，是燃烧在每个年轻人心中的火。而这种粉碎缺憾，用奔跑追求完美，永不妥协的精神，和场外的雷凌有着惊人的一致。
+					     既要外形时尚，又要空间宽敞；既要乘坐舒适，又要动力强劲；既要动感十足，又要操控灵敏。诸多汽车制造中难以克服的难题，雷凌用“不妥协”精神逐个粉碎。当头顶的水幕忽然降下，蜷缩在幕布上的女演员，随着音乐的激昂，周而复始地用身体冲击着水幕，一声声巨响犹如怒吼，向随波逐流宣泄不满。她们用不妥协的强大心灵，一次次推开劈头打来的浪花，变得更强大。这样的精神，与“为梦想造车”的广汽丰田有着惊人的一致。深入市场调研当下年轻人对完美车型的憧憬后，广汽丰田十年磨一剑打造出重磅明星车雷凌。就如同剧中的女演员，拒绝卷入平庸，而是在耀眼的光芒下更加坚定地前行。
+					    不放弃梦想，不放弃向前。《极限震撼》的每一位演员都在用自己的力量和坚持，让观众们看清自己的心灵。而雷凌，也以“方向在我手中”的宣言，更以“新感官领秀中级车”的豪情，让人们看到了自己内心中最为炽烈的，不妥协的那颗心。
+				</p>
+			</div>
+		</div>
+		<!--主体内容等的容器结束-->
+		<!--底部的容器开始-->
+		<div class="footer">
+				Copyright&copy;2014 广汽丰田汽车有限公司 版权所有粤ICP备06028948号
+			</div>
+		<!--底部的容器结束-->
+	</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/amazeui.min.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+
+<body>
+<a href="javascript:void(0)" class="am-top-right-icon" onclick="secondPage();"><img src="i/sgoto.png"/></a>
+<div class="am-thirdPage">
+  <div id="main-content" class="am-thirdPage-item">
+    <!--<div class="am-slider am-slider-default" data-am-flexslider>
+      <ul class="am-slides">
+        <li><img src="i/c1.jpg"/></li>
+        <li><img src="i/c1.jpg"/></li>
+        <li><img src="i/c1.jpg"/></li>
+        <li><img src="i/c1.jpg"/></li>
+        <li><img src="i/c1.jpg"/></li>
+      </ul>
+    </div>-->
+    <!--<div class="am-margin-bottom-xs am-gd-map"><img src="i/c2.jpg"/></div>-->
+    <!--<div class="am-gd-detail">
+      <div class="am-gd-detail-graybox">
+        <div>
+          <h3>星级推荐<span class="am-text-sm">（家庭套餐）</span></h3>
+          <div class="am-pingji"><img src="i/icon-star.png"/><img src="i/icon-star.png"/><img src="i/icon-star.png"/><img src="i/icon-star.png"/><img src="i/icon-star.png"/></div>
+          <p class="am-text-sm"> 选本岛最具特色的海鲜猪和走地鸡，取博贺本地经典菜品水东芥菜和墨鱼丸，只为您的100%满意假期。宝宝爱吃，爸爸妈妈放心！ 精选菜品：海鲜猪肉炖土豆、本岛白切鸡、高汤灼水东芥菜、渔港墨鱼丸 </p>
+        </div>
+        <img src="i/c3.jpg"/>
+        <div>
+          <p class="am-text-sm"> 选本岛最具特色的海鲜猪和走地鸡，取博贺本地经典菜品水东芥菜和墨鱼丸，只为您的100%满意假期。宝宝爱吃，爸爸妈妈放心！ 精选菜品：海鲜猪肉炖土豆、本岛白切鸡、高汤灼水东芥菜、渔港墨鱼丸 </p>
+        </div>
+        <img src="i/c4.jpg"/>
+        <div>
+          <p class="am-text-sm"> 选本岛最具特色的海鲜猪和走地鸡，取博贺本地经典菜品水东芥菜和墨鱼丸，只为您的100%满意假期。宝宝爱吃，爸爸妈妈放心！ 精选菜品：海鲜猪肉炖土豆、本岛白切鸡、高汤灼水东芥菜、渔港墨鱼丸 </p>
+        </div>
+        <img src="i/c5.jpg"/>
+        <div>
+          <p class="am-text-sm"> 选本岛最具特色的海鲜猪和走地鸡，取博贺本地经典菜品水东芥菜和墨鱼丸，只为您的100%满意假期。宝宝爱吃，爸爸妈妈放心！ 精选菜品：海鲜猪肉炖土豆、本岛白切鸡、高汤灼水东芥菜、渔港墨鱼丸 </p>
+        </div>
+      </div>
+    </div>-->
+    <!--<div class="am-video">
+      <video preload="auto" width="100%" controls>
+        <source src="video/movie.mp4" type='video/mp4'>
+      </video>
+    </div>-->
+  </div>
+</div>
+<div class="footer-placeholer"></div>
+<div class="swipePanel-nav">
+  <ul class="am-avg-sm-5 am-thumbnails am-thirdPage-footer-nav">
+    <li><a href="#"><img src="i/zan.png"/></a></li>
+    <li><a href="orderSubmit.html"><img src="i/ding.png"/></a></li>
+    <li><a href="pay.html"><img src="i/pay.png"/></a></li>
+    <li><a href="#"><img src="i/ping.png"/></a></li>
+    <li><a href="#" data-am-modal="{target: '#share', closeViaDimmer: 0, width: 400, height: 225}"><img src="i/share.png"/></a></li>
+  </ul>
+</div>
+<div id="share" class="am-modal am-modal-no-btn">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">
+    	<b>分享到</b>
+    </div>
+    <div class="am-modal-bd">
+    	<table style="width:100%;">
+        	<tr><td class="am-padding-xs"><img src="i/fx1.png"/></td><td class="am-padding-xs"><img src="i/fx2.png"/></td></tr>
+            <tr><td class="am-padding-xs"><img src="i/fx3.png"/></td><td class="am-padding-xs"><img src="i/fx4.png"/></td></tr>
+        </table>
+    </div>
+  </div>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/amazeui.min.js"></script> 
+<script src="js/hammer.min.js"></script>
+<script>
+//获得地址栏参数
+function GetQueryString(name)
+{
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r!=null) return unescape(r[2]); return null;
+}
+var para_cid = GetQueryString("cid"); //当前栏目ID
+var para_pcid = GetQueryString("pid"); //上级栏目ID
+
+var base = 'http://platform.91zmt.com';
+    $.ajax({
+        url:base + '/interface/webcontent',
+        data:{
+            webcode:'fangjiwei',
+            template:3,
+            uid:2,
+            cid:para_cid
+        },
+        cache:false,
+        type:'POST',
+        dataType:'JSON',
+        success:initPage
+    });
+    function initPage(res){
+    	console.log(res);
+
+    	var slider_html=""; //轮换图片
+    	var map_html=""; //地图
+    	var descript_html=""; //内容
+    	var video_html="";//视频
+
+    	$.each(res,function(ind,json) {
+    		if(json.title=="顶部轮换图片"){
+    			if(json.childs){
+    				slider_html+="<div class=\"am-slider am-slider-default\" data-am-flexslider><ul class=\"am-slides\">";
+    				var childs = json.childs;
+    				for (i = 0; i < childs.length; i++){
+    					slider_html+="<li><img src=\""+base+childs[i].image+"\"/></li>";
+    				}
+    				slider_html+="</ul></div>";
+    			}
+    		}else if(json.title=="地图"){
+    			map_html="<div class=\"am-margin-bottom-xs am-gd-map\"><a href=\""+base+json.url+"\"><img src=\""+base+json.image+"\"/></a></div>";
+    		}else if(json.title=="视频"){
+    			video_html+="<video preload=\"auto\" width=\"100%\" controls><source src=\""+base+json.url+"\" type='video/mp4'></video>";
+    		}else{
+    			descript_html+="<div class=\"am-video\"><div class=\"am-gd-detail\">"+json.descript+"</div></div>";
+    		}
+        });
+
+        $('#main-content').html(slider_html+map_html+descript_html+video_html);
+        $('.am-slider').flexslider();
+    }
+    
+    function secondPage(){
+    	var url="secondPage.html?cid="+para_pcid;
+    	window.location=url;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<!-- Slider Kit styles -->
+		<link rel="stylesheet" type="text/css" href="css/sliderkit-core.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="css/sliderkit-demos.css" media="screen, projection" />
+		
+		<!-- Slider Kit compatibility -->
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/sliderkit-demos-ie6.css" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/sliderkit-demos-ie7.css" /><![endif]-->
+		<!--[if IE 8]><link rel="stylesheet" type="text/css" href="css/sliderkit-demos-ie8.css" /><![endif]-->
+
+		<!-- Site styles -->
+		<link rel="stylesheet" type="text/css" href="css/sliderkit-site.css" media="screen, projection" />
+		<link rel="stylesheet" href="css/mscarousel.css" />
+		<link rel="stylesheet" href="css/themes.css" />
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+		<!-- jQuery Plugin scripts -->
+		<script type="text/javascript" src="js/external/jquery.easing.1.3.min.js"></script>
+		<script type="text/javascript" src="js/external/jquery.mousewheel.min.js"></script>
+		
+		<!-- Slider Kit scripts -->
+		<script type="text/javascript" src="js/sliderkit/jquery.sliderkit.1.9.2.pack.js"></script>
+
+	</head>
+	<body>
+		 <!--顶部LOGO、MENU等的容器开始 -->
+		 <div class="bg">
+			<div class="header">
+				<div class="logo"><img src="images/logo.jpg"></div>
+				<div class="menu">
+				<div class="line"></div>
+				<ul class="menu_list">
+						<li>
+							<a href="index.html" class="btn">
+								首  页
+							</a>
+						</li>
+						<li>
+							<a href="list.html" class="btn">
+								资讯中心
+							</a>
+							<div class="sublist_1 sublist">
+								<ul class="clearfix">
+									<li>
+										<a href="list.html">公司新闻</a>|
+									</li>
+									<li>
+										<a href="list.html">部门新闻</a>|
+									</li>
+									<li>
+										<a href="list.html">部门新闻</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="video_list.html" class="btn">
+								视频中心
+							</a>
+						</li>
+						<li>
+							<a href="pic_list.html" class="btn">
+								部门活动
+							</a>
+						</li>
+				</ul>
+			</div>
+				
+				<script>
+				/*顶部菜单代码*/
+				
+				/*一级当前初始化*/
+				
+				var m_l = $(window).width()/2-538/2;
+//				console.log( $('.menu_list').width(),'m_l')
+				$('.menu_list').css('margin-left',m_l+'px')
+				if($('.header .menu_list>li.on').length>0){
+			  		
+			  		$('.header .line').animate({left:$('.header .menu_list>.on').offset().left},'300')
+			  		$('.header .line').css('left',$($('.header .menu_list >li.on').get(0)).offset().left)
+			  		
+			  	}else{
+			  		console.log($('.header .menu_list').offset().left)
+			  		$('.header .line').css('left',$('.header .menu_list').offset().left)
+			  	}
+				/*一级展开*/
+				$('.header .menu_list>li').hover(
+					 function () {
+					 	$('.sublist_'+$('.header .menu_list li').index(this)).finish()
+					    $('.line').animate({left:$(this).offset().left},'100')
+					    $('.sublist_'+$('.header .menu_list li').index(this)).fadeIn()
+					  },
+					  function () {
+					  	$('.line').finish()
+					  	if($('.header .menu_list>li.on').length>0){
+					  		
+					  		$('.line').animate({left:$('.header .menu_list>li.on').offset().left},'300')
+					  		
+					  	}else{
+					  		$('.line').delay(300).animate({left:$($('.header .menu_list li').get(0)).offset().left},'300')
+					  	}
+					    $('.sublist_'+$('.header .menu_list li').index(this)).delay(800).fadeOut(300)
+					  }
+				)
+				/*二级对齐*/
+				$('.sublist').each(function(i,e){
+					var e_ul = $(e).find('ul');
+					var frist = $($('.header .btn').get(i+1))
+					var ul_w = e_ul.children().length*102
+					var left = frist.position().left +(frist.width()/2-ul_w/2)
+					console.log('dd',$('.menu_list').position().left)
+					e_ul.css('margin-left',left+'px')
+				})
+				</script>
+			</div>
+			<!--顶部LOGO、MENU等的容器结束 -->
+			<!--顶部BANNER等的容器开始-->
+			<div class="banner_0 banner clearfix">
+				<div class="sliderkit photoslider-1click">
+					<div class="sliderkit-nav">
+						<div class="sliderkit-nav-clip">
+							<ul>
+								<!--<li><a href="#" title="Photo sample 01">1</a></li>
+								<li><a href="#" title="Photo sample 02">2</a></li>
+								<li><a href="#" title="Photo sample 03">3</a></li>
+								<li><a href="#" title="Photo sample 04">4</a></li>
+								<li><a href="#" title="Photo sample 05">5</a></li>
+								<li><a href="#" title="Photo sample 06">6</a></li>
+								<li><a href="#" title="Photo sample 07">7</a></li>
+								<li><a href="#" title="Photo sample 08">8</a></li>-->
+							</ul>
+						</div>
+					</div>
+					<div class="sliderkit-panels">
+						<div class="sliderkit-panel">
+							<img src="images/img.jpg" alt="[Alternative text]" />
+							<div class="title">
+								全新凯美瑞    世界耀我行
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<img src="images/img.jpg" alt="[Alternative text]" />
+							<div class="title">
+								全新凯美瑞    世界耀我行
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<img src="images/img.jpg" alt="[Alternative text]" />
+							<div class="title">
+								全新凯美瑞    世界耀我行
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<img src="images/img.jpg" alt="[Alternative text]" />
+							<div class="title">
+								全新凯美瑞    世界耀我行
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<img src="images/img.jpg" alt="[Alternative text]" />
+							<div class="title">
+								全新凯美瑞    世界耀我行
+							</div>
+						</div>
+						
+					</div>
+				</div>
+	           <script>
+	           	$(document).ready(function() {
+	           		$('.sliderkit-panel').each(function(i,e){
+	           			var index = i+1
+	           			$('.sliderkit-nav ul').append('<li><a href="#" title="Photo sample '+index+'">'+index+'</a></li>')
+	           		})
+	           		$(".banner_0 .photoslider-1click").sliderkit({
+						auto:true,
+						circular:true,
+						//shownavitems:8,
+						panelclick:true,
+						panelfx:"sliding",
+						//panelfxspeed:1000,
+						//panelfxeasing:"easeInOutExpo"
+					});
+	           	});
+	           	
+	           </script>
+	           <dl class="news_list">
+	           		<dt>
+	           			&nbsp;&nbsp;新闻中心
+	           		</dt>
+	           		<dd>
+	           				<a href="">
+	           					+&nbsp;致炫 城市逃跑计划
+	           				</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;雷凌约驾 一试高下
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;广汽丰田冬季服务活动
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;世界耀我行  探索全新凯美瑞
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;牵手平安行幸福方向盘
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;5万元把汉兰达开回家
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;开心好拍档 逸致跨界版，欢乐而来！
+		           			</a>
+		           		</dd>
+	           		<dd class="more">
+	           			<a href="">更 多 ></a>
+	           		</dd>
+	           </dl>
+			</div>
+			<!--顶部BANNER等的容器结束 -->
+			<!--主体内容的容器开始-->
+			<div class="content">
+				<div class="list_0">
+					<h3>资讯中心</h3>
+					<ul>
+						<li>
+							<a href="">
+								<img src="images/img.jpg">
+								<div class="title">
+									致炫 城市逃跑计划
+								</div>
+							</a>
+						</li>
+						<li class="odd">
+							<a href="">
+								<img src="images/img.jpg">
+								<div class="title">
+									致炫 城市逃跑计划
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="images/img.jpg">
+								<div class="title">
+									致炫 城市逃跑计划
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list_1 clearfix">
+					<dl class="list_c list_c_0">
+						<dt>
+							新闻中心
+						</dt>
+						<dd>
+	           				<a href="">
+	           					+&nbsp;致炫 城市逃跑计划
+	           				</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;雷凌约驾 一试高下
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;广汽丰田冬季服务活动
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;世界耀我行  探索全新凯美瑞
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;牵手平安行幸福方向盘
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;5万元把汉兰达开回家
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;开心好拍档 逸致跨界版，欢乐而来！
+		           			</a>
+		           		</dd>
+		           		<dd class="more">
+	           				<a href="">
+	           					更 多 >
+	           				</a>
+	           			</dd>
+					</dl>
+					<dl class="list_c list_c_1 odd">
+						<dd>
+							<img src="images/img.jpg" />
+						</dd>
+						<dt>
+							J.D.Power新车质量研究报告出炉 广汽丰田包揽“双冠军”
+						</dt>
+						<dd class="txt">
+							10月31日，J.D.Power2014年中国新车质量研究(IQS)颁奖典礼在北京中国大饭店举行。广汽丰田汉兰达和逸致在2014年IQS测评中，一举摘下各自细分市场的桂冠，广汽丰田品质保证部孙大兴部长出席领奖。 
+						</dd>
+						<dd class="time">2014-11-10</dd>
+						<dd class="author">作者：李某某</dd>
+					</dl>
+					<dl class="list_c list_c_1">
+						<dd>
+							<img src="images/img.jpg" />
+						</dd>
+						<dt>
+							全国交通安全日到来广汽丰田“幸福方向盘”在行动
+						</dt>
+						<dd class="txt">
+							10月31日，J.D.Power2014年中国新车质量研究(IQS)颁奖典礼在北京中国大饭店举行。广汽丰田汉兰达和逸致在2014年IQS测评中，一举摘下各自细分市场的桂冠，广汽丰田品质保证部孙大兴部长出席领奖。 
+						</dd>
+						<dd class="time">2014-11-10</dd>
+						<dd class="author">作者：李某某</dd>
+					</dl>
+					<dl class="list_c list_c_1">
+						<dd>
+							<img src="images/img.jpg" />
+						</dd>
+						<dt>
+							全国交通安全日到来广汽丰田“幸福方向盘”在行动
+						</dt>
+						<dd class="txt">
+							10月31日，J.D.Power2014年中国新车质量研究(IQS)颁奖典礼在北京中国大饭店举行。广汽丰田汉兰达和逸致在2014年IQS测评中，一举摘下各自细分市场的桂冠，广汽丰田品质保证部孙大兴部长出席领奖。 
+						</dd>
+						<dd class="time">2014-11-10</dd>
+						<dd class="author">作者：李某某</dd>
+					</dl>
+					<dl class="list_c list_c_1 odd">
+						<dd>
+							<img src="images/img.jpg" />
+						</dd>
+						<dt>
+							全国交通安全日到来广汽丰田“幸福方向盘”在行动
+						</dt>
+						<dd class="txt">
+							10月31日，J.D.Power2014年中国新车质量研究(IQS)颁奖典礼在北京中国大饭店举行。广汽丰田汉兰达和逸致在2014年IQS测评中，一举摘下各自细分市场的桂冠，广汽丰田品质保证部孙大兴部长出席领奖。 
+						</dd>
+						<dd class="time">2014-11-10</dd>
+						<dd class="author">作者：李某某</dd>
+					</dl>
+					<dl class="list_c list_c_0">
+						<dt>
+							重要公告
+						</dt>
+						<dd>
+	           				<a href="">
+	           					+&nbsp;致炫 城市逃跑计划
+	           				</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;雷凌约驾 一试高下
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;广汽丰田冬季服务活动
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;世界耀我行  探索全新凯美瑞
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;牵手平安行幸福方向盘
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;5万元把汉兰达开回家
+		           			</a>
+		           		</dd>
+		           		<dd>
+		           			<a href="">
+		           				+&nbsp;开心好拍档 逸致跨界版，欢乐而来！
+		           			</a>
+		           		</dd>
+		           		<dd class="more">
+	           				<a href="">
+	           					更 多 >
+	           				</a>
+	           			</dd>
+					</dl>
+				</div>
+			</div>
+			<!--主体内容等的容器结束-->
+			<!--底部的容器开始-->
+			<div class="footer">
+				Copyright&copy;2014 广汽丰田汽车有限公司 版权所有粤ICP备06028948号
+			</div>
+			<!--底部的容器结束-->
+		</div>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/amazeui.min.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+
+<body>
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>
+<a class="am-header-right am-block am-pos-ab am-text-sm" style="color:white"></a>
+提交订单</div>
+<div class="am-userCenter am-userCenter-gray" am-ui-pagefill>
+  <div class="am-graybar">100元下午茶、晚市通用代金券</div>
+  <ul class="am-list am-list-static am-list-border" style="margin:0">
+    <li class="am-cf"><span class="am-fl">单价</span><span class="am-fr">Y 80</span></li>
+    <li class="am-cf"><span class="am-fl">数量</span><div class="am-fr"><em class="am-icon-minus-square am-icon-sm"></em><span class="am-margin-horizontal-xs am-number">1</span><em class="am-icon-plus-square am-icon-sm"></em></div></li>
+    <li class="am-cf"><span class="am-fl">总价</span><span class="am-fr am-text-danger">Y 80</span></li>
+  </ul>
+  <div class="am-graybar">您的手机号码</div>
+  <ul class="am-list am-list-static am-list-border" style="margin:0">
+    <li class="am-cf"><span class="am-fl">135****8889</span><span class="am-fr"></span></li>
+  </ul>
+  <div class="am-margin-top-sm"><a href="orderDetail.html" class="am-btn am-btn-danger am-bottom-single-btn">提交订单</a></div>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/amazeui.min.js"></script> 
+<script src="js/hammer.min.js"></script>
+<script src="js/app.js"></script>
+<script>
+$('.am-number').number();
+$('[am-ui-pagefill]').css({
+	width:$(window).width(),
+	height:$(window).height()
+});
+</script>
+</body>
+</html>

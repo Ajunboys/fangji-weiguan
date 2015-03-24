@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GGjTpBE6wNRO12ZZxElHGTyr"></script>
+		<script type="text/javascript" src='js/jquery.js'></script>
+		<script src="js/iscroll-zoom.js"></script>
+		<script src="js/PxLoader.js"></script>
+		<script src="js/PxLoaderImage.js"></script>
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/themes.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="pop">
+						<p>菠萝公园</p>
+						<div class="distance">
+							距离<span>未知</span>
+						</div>
+						<div class="j_img"><img src="images/pop_img3.gif"></div>
+						<div class="txt">位于广东茂名，具有开阔的海景， 个度假休闲的好去处</div>
+						<ul class="btn_lis">
+							<li>
+								<a>
+									<img src="images/pop_img0.gif" width="38%">
+									<span>播放</span>
+								</a>
+							</li>
+							<li>
+								<a>
+									<img src="images/pop_img1.gif" width="38%">
+									<span>图片</span>
+								</a>
+							</li>
+							<li class="goto_btn">
+								<a >
+									<img src="images/pop_img2.gif" width="38%">
+									<span>去这里</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+		<div id="wrapper">
+			<div id="scroller">
+				<div class="map">
+					
+					
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GGjTpBE6wNRO12ZZxElHGTyr"></script>
+		<script src="js/getQuerySting.js"></script>
+		<script type="text/javascript">
+			var data_l =[];
+			var cu_index; 
+			var cu_lo={lng:113.30764968,lat:23.1200491}
+			$(document).ready(function()
+			{
+				
+				$.ajax({
+					type:"get",
+					url:"xml/data.xml",
+					async:true,
+					dataType:'xml',
+					success: function(data){
+						var data_list = $(data).find('latitude')
+						$(data_list).each(function(i,e){
+							var num = Number($(e).find('id').text())
+							
+							data_l[num] = e;
+						　　
+							if($(e).find('name').text().indexOf(getQueryString('target'))>0)
+							{
+								cu_index = num;
+							}
+						})
+						console.log('init')
+						//----
+						$.ajax({
+							type:"get",
+							url:"xml/map1.svg",
+							async:true,
+							dataType:'xml',
+							success: function(data){
+								//----
+						     $('.map').append($(data).find('svg'));
+						     $.ajax({
+								type:"get",
+								url:"xml/btn_0.svg",
+								async:true,
+								dataType:'xml',
+								success: function(data){
+									//----
+							     	$('.map').append($(data).find('svg'));
+							     	init()
+							     	//----
+							 	 }
+								})
+						     	//----
+						   }
+		
+						});
+						//-----
+					}
+				})
+				
+						
+			})
+						//地图坐标对比
+			function checklo(pA,pB)
+			{
+				
+				// 百度地图API功能
+				var pointA = new BMap.Point(pA.lng,pA.lat); 
+				var pointB = new BMap.Point(pB.lng,pB.lat);
+				var map = new BMap.Map();
+  				var walking = new BMap.WalkingRoute(new BMap.Point(pA.lng,pA.lat),
+  				{
+  					onSearchComplete:function(r)
+  					{
+  						console.log(r )
+  						$('.pop').find('.distance span').text(r.getPlan(0).getDistance(false) +'米')
+  					}
+  				});
+				walking.search(pointA, pointB);
+				//return (map.getDistance(pointA,pointB)).toFixed(2)
+			}
+			function getCurrent()
+			{
+				var geolocation = new BMap.Geolocation();
+					geolocation.getCurrentPosition(function(r){
+						if(this.getStatus() == BMAP_STATUS_SUCCESS){
+							//alert('您的位置：'+r.point.lng+','+r.point.lat);
+							return r.point
+						}
+						else {
+							alert('failed'+this.getStatus());
+							return this.getStatus()
+						}        
+					},{enableHighAccuracy: true})
+			}
+			function init(){
+				var w =$('#scroller').width()/2-$(window).width()/2;
+						var h =$('#scroller').height()/2-$(window).height()/2;
+						$('#btnmain>g').each(function(i,e)
+						{
+							console.log($(e).position().left)
+							$(e).attr('init-x',$(e).position().left)
+							$(e).attr('init-y',$(e).position().top)
+						})
+						myScroll = new IScroll('#wrapper', {
+							zoom: true,
+							freeScroll:true,
+							scrollX: true,
+							scrollY: true,
+							startX:-w,
+							startY:-h,
+							//mouseWheel: false,
+							wheelAction:'zoom',
+							startZoom:1,
+							zoomMin:1,
+							zoomMax:1.5,
+							click:true
+						});
+//						console.log('w',$('#scroller').width())
+						myScroll.on('zoomStart', function(){
+								$('.pop').hide()
+							});
+						myScroll.on('scrollStart', function(){
+							$('.pop').hide()
+//								if($('#scroller').width()>2700)
+//								{
+//									$('.pop').css('transform','scale(.8)')
+//								}else
+//								{
+//									$('.pop').css('transform','scale(.3)')
+//
+//								}
+							});
+						
+						var clickbool = false
+						$('#btnmain .btn').on('click',function()
+							{
+								$(document).on('click',function(e)
+								{
+									if(!clickbool&&$('.pop').css('display')=='block')
+									{
+										$('.pop').hide()
+										$(this).unbind();
+									}
+								})
+//								console.log('clickbool++btn',clickbool)
+								var index = Number($(this).attr('id').split('btn')[1]);
+								var cu_ar = $(data_l[index])
+								clickbool = true;
+								$('.pop').show().delay(800).show(100,function(){
+									clickbool = false
+								})
+								$('.pop').css({'left':$(window).width()/2-$('.pop').width()/2+'px', 'top':$(window).height()/2-$('.pop').height()-10+'px'})
+								$('.pop').find('p').text(cu_ar.find('name').text())
+								var p2 = {lng:cu_ar.find('lng').text(),lat:cu_ar.find('lat').text()}
+								$('.pop').find('.distance span').text(0 +'米')
+								checklo(cu_lo,p2)
+//								console.log(this)
+//								myScroll.scrollTo(0,0)
+//								console.log(-($(this).offset().left+$('#scroller').offset().left));
+								myScroll.scrollTo(-($(this).offset().left-$('#scroller').offset().left)+$(window).width()/2,-($(this).offset().top-$('#scroller').offset().top)+$(window).height()/2);
+//								myScroll.scrollTo(-$(this).attr('init-x')+$(window).width()/2,-$(this).attr('init-y')+$(window).height()/2)
+							}
+						)
+						$('.goto_btn').on('click',function()
+						{
+							setPath()
+						}
+						)
+						var w =-($('#scroller').width()/2-$(window).width()/2);
+						var h =-($('#scroller').height()/2-$(window).height()/2+100);
+						if(cu_index){
+							$('#btnmain .btn').each(function(i,e){
+								var index = Number($(e).attr('id').split('btn')[1]);
+								if(index == cu_index){
+									var cu = $(e);
+									w = $(window).width()-$(cu).data('init-x')-$('.pop').width()/2;
+									h = $(window).height()-$(cu).data('init-y')-$('.pop').height();
+									cu.click();
+									console.log(cu)
+								}
+							})
+							
+						}
+						myScroll.scrollTo(w, h);
+						function setPath(){
+							$.ajax({
+								type:"get",
+								url:"xml/p0.svg",
+								async:true,
+								dataType:'xml',
+								success: function(data){
+									//----
+							     	$('#btnmain').prepend($(data).find('svg'));
+							     	//----
+							 	 }
+								})
+						}
+						
+			}
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		</script>
+	</body>
+</html>
