@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/amazeui.min.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+<style>
+#register {
+	width: 100%;
+}
+#etcLoginWay{
+	background-color:white;
+}
+</style>
+</head>
+
+<body>
+<div class="am-container am-container-login">
+  <div id="register">
+    <div class="am-margin-horizontal-lg am-radius5" style="overflow:hidden">
+      <div class="am-g">
+        <div class="am-u-sm-6">
+          <div class="am-tabStyle1" onClick="window.location = 'login.html'">登录</div>
+        </div>
+        <div class="am-u-sm-6">
+          <div class="am-tabStyle1-active" onClick="window.location = 'register.html'">注册</div>
+        </div>
+      </div>
+      <div class="am-bg-transWhite am-padding-xs am-padding-horizontal-lg">
+        <form class="am-form">
+          <fieldset>
+            <div class="am-form-group">
+              <label class="am-text-sm">用户名：</label>
+              <input type="text" class="am-input-sm" name="re_username" placeholder="昵称">
+            </div>
+            <div class="am-form-group" style="margin-bottom:.8rem;">
+              <label class="am-text-sm">绑定手机号：</label>
+              <input type="text" class="am-input-sm" name="re_tel" placeholder="请输入手机号">
+            </div>
+            <div class="am-form-group">
+              <div class="am-input-group">
+                <input type="text" class="am-form-field am-input-sm" name="re_code" placeholder="请输入验证码">
+                <span class="am-input-group-label am-text-xs">发送验证码</span> </div>
+            </div>
+            <div class="am-form-group">
+              <label class="am-text-sm">密 码：</label>
+              <input type="password" class="am-input-sm" name="re_pwd" placeholder="请输入密码">
+            </div>
+            <div class="am-form-group" style="margin-bottom:.8rem;">
+              <label class="am-text-sm">确认密码：</label>
+              <input type="password" class="am-input-sm" name="re_pwd2" placeholder="请再次输入密码">
+            </div>
+            <div class="am-form-group">
+              <button type="button" class="am-btn am-btn-success am-btn-block" id="register_in">注册</button>
+            </div>
+            <div class="am-form-group am-cf am-margin-top-xs">
+                <span class="am-fl am-text-sm am-text-default" data-am-modal="{target: '#etcLoginWay'}">其他账号登录</span><span class="am-fr am-text-sm am-text-danger" onclick="window.location = 'forgetPas.html'">注册遇到问题?</span>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="etcLoginWay"  class="am-modal-actions">
+  	<div class="am-modal-actions-group">
+    	<div class="am-text-center am-margin-bottom-sm"><b>其他账号登录</b></div>
+        <div class="am-g am-margin-bottom-sm">
+        	<div class="am-u-sm-6"><div class="am-margin-horizontal-xs"><img src="i/el1.png"/></div></div>
+            <div class="am-u-sm-6"><div class="am-margin-horizontal-xs"><img src="i/el2.png"/></div></div>
+        </div>
+        <div class="am-g">
+        	<div class="am-u-sm-6"><div class="am-margin-horizontal-xs"><img src="i/el3.png"/></div></div>
+            <div class="am-u-sm-6"><div class="am-margin-horizontal-xs"><img src="i/el4.png"/></div></div>
+        </div>
+    </div>
+  </div>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/amazeui.min.js"></script> 
+<script src="js/hammer.min.js"></script> 
+<script src="js/imagesloaded.pkgd.min.js"></script> 
+<script src="js/apps.js"></script> 
+<script>
+$('#register').center();
+
+</script>
+</body>
+</html>
