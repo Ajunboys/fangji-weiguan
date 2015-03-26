@@ -21,7 +21,8 @@
 </head>
 
 <body>
-<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>
+<div id="food-form-order">
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block  am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>
 <a href="thirdPage.html" class="am-header-right am-block am-pos-ab am-text-sm" style="color:white"></a>
 支付订单</div>
 <div class="am-container am-container-gray am-padding-vertical-sm">
@@ -80,26 +81,33 @@
   <form class="am-form">
   <ul class="am-list am-list-static am-text-sm" style="margin:0">
   	<li class="am-cf">
-    	<div class="am-padding-horizontal-sm" style="height:24px;">
-        	<img src="i/pay1.png" style="height:24px;"/><input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
+    	<div class="am-padding-horizontal-sm" style="height:24px;"><input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
         </div>
     </li>
     <li class="am-cf">
     	<div class="am-padding-horizontal-sm">
-    		<img src="i/pay2.png" style="height:24px;"/><input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
+    		<img src="i/pay2.png" style="height:24px;"/><span class="am-padding-horizontal-sm" style="height:24px;"><img src="i/pay1.png" style="height:24px;"/></span>
+    		<input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
         </div>
     </li>
   </ul>
   </form>
   <div class="am-margin-top-sm"><a href="orderDetail.html" class="am-btn am-btn-success am-bottom-single-btn">确认支付</a></div>
 </div>
+</div>
+
+<div id="house-form-order">
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs am-text-color-white"></i></a> 
+  <div class="am-btn-group" data-am-button>预订</div>
+</div>
+<div class="am-container am-container-gray am-padding-vertical-sm" id="appListView">      
+</div>
+</div>
 <script src="js/jquery.min.js"></script> 
 <script src="js/imagesloaded.pkgd.min.js"></script>
 <script src="js/amazeui.min.js"></script> 
 <script src="js/hammer.min.js"></script>
 <script src="js/app.js"></script>
-<script>
-
-</script>
+<script src="js/pay.js"></script>
 </body>
 </html>

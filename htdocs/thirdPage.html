@@ -67,7 +67,7 @@
   <ul class="am-avg-sm-5 am-thumbnails am-thirdPage-footer-nav">
     <li><a href="#"><img src="i/zan.png"/></a></li>
     <li><a href="orderSubmit.html"><img src="i/ding.png"/></a></li>
-    <li><a href="pay.html"><img src="i/pay.png"/></a></li>
+    <li ><a id="do-pay-action" href="pay.html"><img src="i/pay.png"/></a></li>
     <li><a href="#"><img src="i/ping.png"/></a></li>
     <li><a href="#" data-am-modal="{target: '#share', closeViaDimmer: 0, width: 400, height: 225}"><img src="i/share.png"/></a></li>
   </ul>
@@ -99,6 +99,7 @@ function GetQueryString(name)
 var para_cid = GetQueryString("cid"); //当前栏目ID
 var para_pcid = GetQueryString("pid"); //上级栏目ID
 
+$("#do-pay-action").attr("href",("pay.html?pid="+para_pcid+"&cid="+para_cid));
 var base = 'http://platform.91zmt.com';
     $.ajax({
         url:base + '/interface/webcontent',
