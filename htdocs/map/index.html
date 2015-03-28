@@ -10,6 +10,7 @@
 		<script src="js/PxLoader.js"></script>
 		<script src="js/PxLoaderImage.js"></script>
 		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/idangerous.swiper.css" rel="stylesheet" type="text/css" />
 		<link href="css/themes.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
@@ -27,7 +28,7 @@
 									<span>播放</span>
 								</a>
 							</li>
-							<li>
+							<li class="pop_picbtn">
 								<a>
 									<img src="images/pop_img1.gif" width="38%">
 									<span>图片</span>
@@ -44,13 +45,73 @@
 		<div id="wrapper">
 			<div id="scroller">
 				<div class="map">
-					
-					
+				</div>
+			</div>
+			<div class="btnlist">
+				<a class="mdd"></a>
+				<a class="bottom_btn_con"></a>
+				<div class="clearfix"></div>
+				<div class="mm_btnlist">
+					<ul>
+						<li class="mm_0">
+							<a>
+								<span>推荐路线</span>
+							</a>
+						</li>
+						<li class="mm_1">
+							<a>
+								<span>景点</span>
+							</a>
+						</li>
+						<li class="mm_2">
+							<a>
+								<span>表演</span>
+							</a>
+						</li>
+						<li class="mm_3">
+							<a>
+								<span>酒店</span>
+							</a>
+						</li>
+						<li class="mm_4">
+							<a>
+								<span>餐饮</span>
+							</a>
+						</li>
+					</ul>
+					<ul>
+						<li class="mm_5">
+							<a>
+								<span>购物</span>
+							</a>
+						</li>
+						<li class="mm_6">
+							<a>
+								<span>园区交通</span>
+							</a>
+						</li>
+						<li class="mm_7">
+							<a>
+								<span>售票点</span>
+							</a>
+						</li>
+						<li class="mm_8">
+							<a>
+								<span>洗手间</span>
+							</a>
+						</li>
+						<li class="mm_9">
+							<a>
+								<span>WIFI</span>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GGjTpBE6wNRO12ZZxElHGTyr"></script>
 		<script src="js/getQuerySting.js"></script>
+		<script src="js/idangerous.swiper.js"></script>
 		<script type="text/javascript">
 			var data_l =[];
 			var cu_index; 
@@ -75,7 +136,6 @@
 								cu_index = num;
 							}
 						})
-						console.log('init')
 						//----
 						$.ajax({
 							type:"get",
@@ -119,7 +179,6 @@
   				{
   					onSearchComplete:function(r)
   					{
-  						console.log(r )
   						$('.pop').find('.distance span').text(r.getPlan(0).getDistance(false) +'米')
   					}
   				});
@@ -145,7 +204,6 @@
 						var h =$('#scroller').height()/2-$(window).height()/2;
 						$('#btnmain>g').each(function(i,e)
 						{
-							console.log($(e).position().left)
 							$(e).attr('init-x',$(e).position().left)
 							$(e).attr('init-y',$(e).position().top)
 						})
@@ -163,7 +221,6 @@
 							zoomMax:1.5,
 							click:true
 						});
-//						console.log('w',$('#scroller').width())
 						myScroll.on('zoomStart', function(){
 								$('.pop').hide()
 							});
@@ -190,23 +247,20 @@
 										$(this).unbind();
 									}
 								})
-//								console.log('clickbool++btn',clickbool)
 								var index = Number($(this).attr('id').split('btn')[1]);
-								var cu_ar = $(data_l[index])
+								var cu_ar = $(data_l[index]);
 								clickbool = true;
 								$('.pop').show().delay(800).show(100,function(){
 									clickbool = false
-								})
-								$('.pop').css({'left':$(window).width()/2-$('.pop').width()/2+'px', 'top':$(window).height()/2-$('.pop').height()-10+'px'})
-								$('.pop').find('p').text(cu_ar.find('name').text())
+								});
+								$('.pop').css({'left':$(window).width()/2-$('.pop').width()/2+'px', 'top':$(window).height()/2-$('.pop').height()-10+'px'});
+								$('.pop').find('p').text(cu_ar.find('name').text());
+								$('.pop').find('div.txt').text(cu_ar.find('intro').text()); //景点介绍文字 @kit
 								var p2 = {lng:cu_ar.find('lng').text(),lat:cu_ar.find('lat').text()}
 								$('.pop').find('.distance span').text(0 +'米')
 								checklo(cu_lo,p2)
-//								console.log(this)
-//								myScroll.scrollTo(0,0)
-//								console.log(-($(this).offset().left+$('#scroller').offset().left));
 								myScroll.scrollTo(-($(this).offset().left-$('#scroller').offset().left)+$(window).width()/2,-($(this).offset().top-$('#scroller').offset().top)+$(window).height()/2);
-//								myScroll.scrollTo(-$(this).attr('init-x')+$(window).width()/2,-$(this).attr('init-y')+$(window).height()/2)
+								cu_index = index
 							}
 						)
 						$('.goto_btn').on('click',function()
@@ -224,7 +278,6 @@
 									w = $(window).width()-$(cu).data('init-x')-$('.pop').width()/2;
 									h = $(window).height()-$(cu).data('init-y')-$('.pop').height();
 									cu.click();
-									console.log(cu)
 								}
 							})
 							
@@ -243,9 +296,43 @@
 							 	 }
 								})
 						}
-						
+						$('.pop_picbtn').click(function(){
+							newPic();
+						})
+						//新建图片
+						function newPic()
+						{
+							var d = '<div class="pic_bg"><div class="swiper-container">'
+								d+= '<div class="swiper-wrapper">'
+								d+= '</div>'
+								d+= '<div class="swiper-pagination"></div>'
+								d+= '</div></div>'
+								$('body').append(d);
+								$($(data_l[cu_index]).find('pic')).each(function(i,e){
+									$('.pic_bg .swiper-wrapper').append('<div class="swiper-slide"><img src="'+$(e).text()+'"/></div>')
+								})
+								$('.pic_bg').append("<div class='closebtn'><img src='images/sprite_03.png'></div>")
+								var mySwiper = new Swiper('.swiper-container',{
+								    loop:true
+								  })
+								$('.pic_bg .closebtn').click(function()
+								{
+									$('.pic_bg').empty();
+									$('.pic_bg').remove()
+								})
+						}
 			}
 			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			$('.btnlist .bottom_btn_con').click(function(){
+				if(!$(this).hasClass('on')){
+					$(this).addClass('on')
+					$('.btnlist').animate({bottom:0},300)
+				}else
+				{
+					$(this).removeClass('on')
+					$('.btnlist').animate({bottom:'-130px'},300)
+				}
+			})
 		</script>
 	</body>
 </html>
