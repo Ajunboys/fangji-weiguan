@@ -21,16 +21,17 @@
 </head>
 
 <body>
-<div id="#">
+  <!--view-order-detail-->
+<div id="view-order-detail" style="display: none;visibility: hidden;">               
 <div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>订单详情<a class="am-header-right am-block am-pos-ab"><i class="am-icon-trash am-icon-xs am-text-color-white"></i></a> </div>
-<div class="am-container am-container-gray am-userCenter" style="padding-bottom:50px;">
-	<table class="am-table am-orderList" style="margin-bottom:0;">
+<div class="am-container am-container-gray am-userCenter" style="padding-bottom:50px;" id="view-order-detail-childsB">
+  <table class="am-table am-orderList" style="margin-bottom:0;">
         <tr>
             <td><div class="am-g-face"><a href="orderDetail.html"><img src="i/temp.png"/></a></div></td>
             <td>
                 <div class="am-g-info am-pos-re">
-                    <div class="am-text-sm"><b>上楼茶点餐厅：价值200元</b></div>
-                    <div class="am-text-color-gray am-text-xs"><span>价格：Y179.00</span><span class="am-margin-left-xs">数量:1</span></div>
+                    <div class="am-text-sm"><b id="view-order-detail-productName">上楼茶点餐厅：价值200元</b></div>
+                    <div class="am-text-color-gray am-text-xs"><span>价格：Y<span id="view-order-detail-unitPrice">179.00</span></span><span class="am-margin-left-xs">数量:<span id="view-order-detail-qtys01"></span></span></div>
                     <div class="am-text-sm am-text-color-green">待付款</div>
                 </div>
             </td>
@@ -39,65 +40,404 @@
             </td>
         </tr>
         <tr>
-        	<td colspan="3">
-        		<div class="am-g am-text-sm">
-                	<div class="am-u-sm-6 am-text-center">已售：2623</div>
+          <td colspan="3">
+            <div class="am-g am-text-sm">
+                  <div class="am-u-sm-6 am-text-center">已售：2623</div>
                     <div class="am-u-sm-6 am-text-center">好评率：90%</div>
                 </div>
             </td>
         </tr>
     </table>
     <div class="am-panel am-panel-default" style="margin-bottom:0">
-    	<div class="am-panel-hd">消费券</div>
+      <div class="am-panel-hd">消费券</div>
         <div class="am-panel-bd am-text-sm">
             <div><b>券码：</b>1234 1234 1234</div>
             <div><b>有效期至：</b>2015-12-21</div>
             <div class="am-text-color-green am-text-center">
-            	店小二，扫一扫
+              店小二，扫一扫
                 <div style="margin:.4rem 8rem;">
-                	<img src="i/ewm.png"/>
+                  <img src="i/ewm.png"/>
                 </div>
             </div>
         </div>
     </div>
     <div class="am-panel am-panel-default" style="margin-bottom:0">
-    	<div class="am-panel-hd">商家信息</div>
+      <div class="am-panel-hd">商家信息</div>
         <div class="am-panel-bd am-text-sm am-pos-re">
-        	<span class="am-pos-ab am-text-color-green am-icon-phone am-icon-lg" style="right:1.5rem;top:1.5rem;"></span>
+          <span class="am-pos-ab am-text-color-green am-icon-phone am-icon-lg" style="right:1.5rem;top:1.5rem;"></span>
             <div><b>放鸡岛</b></div>
             <div class="am-text-color-gray"><b>博贺港酒店东座2楼</b></div>
             <div class="am-text-color-green am-text-center">
-            	<img src="i/map.png"/>
+              <img src="i/map.png"/>
             </div>
         </div>
     </div>
     <div class="am-panel am-panel-default" style="margin-bottom:0">
-    	<div class="am-panel-hd">套餐</div>
+      <div class="am-panel-hd">套餐</div>
         <div class="am-panel-bd am-text-sm am-pos-re">
-        	<div class="b">精选菜品：</div>
+          <div class="b">精选菜品：</div>
             <div class="am-margin-vertical-xs">本岛葱油鸡、清蒸天然海鲜、瑶柱刺龟皮塘、白灼花蟹、盐焗天然海虾、鲜百合炒云耳、油泡鲜鱿、鲜鲍鱼煮番茄、核桃炒三果、五香海鲜扣肉、虾球烩伊面、高汤灼水东芥菜</div>
         </div>
     </div>
     <div class="am-panel am-panel-default" style="margin-bottom:0">
-    	<div class="am-panel-hd">订单详情</div>
+      <div class="am-panel-hd">订单详情</div>
         <div class="am-panel-bd am-text-sm am-pos-re">
-        	<div>订单号：<span class="am-text-color-gray">4002 5024 5886</span></div>
-            <div>下单时间：<span class="am-text-color-gray">2015-02-21</span></div>
-            <div>数量：<span class="am-text-color-gray">1</span></div>
-            <div>总价：<span class="am-text-color-gray">320元</span></div>
+          <div>订单号：<span class="am-text-color-gray" id="view-order-detail-orderNo">4002 5024 5886</span></div>
+            <div>下单时间：<span class="am-text-color-gray" id="view-order-detail-time">2015-02-21</span></div>
+            <div>数量：<span class="am-text-color-gray" id="view-order-detail-qtys02">1</span></div>
+            <div>总价：<span class="am-text-color-gray" id="view-order-detail-totalCost">320元</span></div>
         </div>
     </div>
 </div>
 <div class="footerBtnGroup">
-	<button type="button" class="am-btn am-btn-warning am-btn-block" onClick="window.location='pay.html'">去付款</button>
-</div>
+  <button type="button" id="view-order-detail-submit-btn" class="am-btn am-btn-warning am-btn-block" onClick="window.location='pay.html'">去付款</button>
 </div>
 
+</div>
+
+
+<!--food form order detail-->
+<div id="food-form-order-detail" style="display: none;visibility: hidden;">
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs am-text-color-white"></i></a>
+  <div class="am-btn-group" data-am-button>预订</div>
+</div>
+
+<div class="am-container am-container-gray am-padding-vertical-sm">
+  <form class="am-form">
+  <table class="am-table am-orderList" style="margin-bottom:4px">
+          <tr>
+              <td><div class="am-g-face"><a href="orderDetail.html"><img src="i/temp.png"/></a></div></td>
+              <td>
+                  <div class="am-g-info am-pos-re">
+                        <div class="am-text-sm"><b>知心知己A套餐</b></div>
+                        <div class="am-text-color-gray am-text-xs"><span>好鸡友的首选海鲜套餐...</span></div>
+                        <div class="am-text-lg am-text-danger b">￥280</div>
+                    </div>
+                </td>
+                <td>
+                  <div class="am-g-info am-pos-re">
+                        <div class="am-text-sm"><b></b></div>
+                        <div class="am-text-color-gray am-text-xs"><span></span><span class="am-margin-left-xs"></span></div>
+                        <div class="am-fr am-form-inline">
+                         <div class="am-form-group">
+                          <em class="am-icon-minus am-icon-sm am-text-color-green" id="food-form-order-detail-btn-lower" style="cursor: pointer;"></em>
+                         </div>
+                         <div class="am-form-group">
+                          <span class="am-margin-horizontal-xs am-number" id="food-form-order-detail-amount">1</span>
+                        </div>
+                         <div class="am-form-group">
+                          <em class="am-icon-plus am-icon-sm am-text-color-green" id="food-form-order-detail-btn-add" style="cursor: pointer;"></em>
+                         </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+ 
+   
+   <ul class="am-list am-list-static am-text-sm" style="margin:0">
+    <li class="am-cf" style="margin-bottom:4px">
+      <div class="am-padding-horizontal-sm b">
+          <span class="am-fl">总价</span><span class="am-fr"><i class="am-text-danger" id="food-form-order-detail-unit">0</i>元</span>
+        </div>
+    </li>
+    <li class="am-cf" style="margin-bottom:4px">
+      <div class="am-padding-horizontal-sm">
+          <span class="am-fl b">用餐时间</span>
+            <span class="am-fr">
+                <input name="food-datetime" type="text"class="am-form-field" id="food-datetime" placeholder="yyyy-mm-dd"  value="" maxlength="10" readonly />
+             </span>
+             <!--
+            <span class="am-fr am-form-inline">
+             <div class="am-form-group">
+                <input type="tel" min="2015" max="2015" style="width:100px;" value="2015" class="am-number" id="food-year" name="food-year"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <input type="tel" min="1" max="12" style="width:80px;" value="1" class="am-number" id="food-month" name="food-month"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <input type="tel" min="1" max="31" style="width:80px;" value="1" class="am-number" id="food-date" name="food-date"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+            </span>
+          -->
+        </div>
+    </li>
+     
+    <li class="am-cf" style="margin-bottom:4px">
+      <div class="am-padding-horizontal-sm">
+          <span class="am-fl b">用餐人数</span>
+          <span class="am-fr am-form-inline">
+            <div class="am-form-group">
+            <input type="tel" min="1" max="20" style="width:60px;" value="1" class="am-number" id="food-qty" name="food-qty"/>
+            </div>
+            <div class="am-form-group">
+            <span class="b">人</span>
+            </div>
+            
+          </span>
+        </div>
+    </li>
+    
+ 
+    
+    <li class="am-cf" style="margin-bottom:4px">
+      <div class="am-padding-horizontal-sm b" style="margin-bottom:4px">个人信息</div>
+      <div class="am-padding-horizontal-sm" style="margin-bottom:4px">
+          <input type="text" name="food-username" id="food-username" class="am-form-field" placeholder="用户名"/>
+      </div>
+     
+      <div class="am-padding-horizontal-sm" style="margin-bottom:4px">
+          <input type="tel" name="food-phone" id="food-phone" class="am-form-field" placeholder="手机号"/>
+      </div>
+    </li>
+     <div class="am-cf am-margin-horizontal-sm am-padding-horizontal-sm" style="margin:2px 0px 2px 0px;">
+             <a href="${back}">
+               <span class="am-fr am-text-danger am-text-middle">
+                 <em  class="am-text-danger am-margin-right-xs">注册会员，享受更多优惠</em>
+                 <i class="am-icon-chevron-right am-text-danger"></i>
+               </span>
+             </a>
+   </div>
+  </ul>
+ 
+   
+   
+   <ul class="am-list am-list-static am-text-sm" style="margin-top:4px">
+    <li class="am-cf" style="margin-bottom:4px">
+    <div class="am-g am-cf">
+    <div class="col-sm-1"><span class="b">留言:</span></div>
+    <div class="col-sm-11"><textarea class="" rows="5" id="food-last-remark" placeholder="有特别要求"></textarea></div>
+   </div>
+   </li>
+   </ul>
+   
+  </form>
+      
+  <div class="am-margin-horizontal-sm">
+      <div class="am-margin-top-lg"><a href="javascript:void(0);" id="orderSubmit" class="am-btn am-btn-success am-bottom-single-btn">提交订单</a></div>
+       <div class="am-padding-horizontal-sm">
+         <a href="${back}">
+           <span class="am-fr am-text-danger am-text-sm">
+             <em  class="am-text-danger am-margin-right-xs">前往支付</em>
+             <i class="am-icon-chevron-right am-text-danger"></i>
+           </span>
+         </a>
+       </div>
+   </div>
+    
+ </div>
+</div>
+
+<!--house-form-order-detail-->
+<div id="house-form-order-detail" style="display: none;visibility: hidden;">
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs am-text-color-white"></i></a>
+  <div class="am-btn-group" data-am-button>预订信息</div>
+</div>
+
+<div class="am-container am-container-gray am-padding-vertical-sm">
+  <form class="am-form">
+   <ul class="am-list am-list-static am-text-sm" style="margin:0">
+  	<li class="am-cf" style="margin-bottom:4px">
+    	<div class="am-padding-horizontal-sm b">
+        	<span class="am-fl">总价</span><span class="am-fr"><i class="am-text-danger" id="house-form-order-detail-unit">280</i>元</span>
+        </div>
+    </li>
+   </ul>
+   
+   <ul class="am-list am-list-static am-text-sm" style="margin:0">
+  	<li class="am-cf" style="margin-bottom:4px">
+    	<div class="am-padding-horizontal-sm">
+          <span class="am-fl b">入住时间</span>
+            <span class="am-fr">
+              <div class="am-form-inline" style="display: none;visibility: hidden;">
+                <input type="text" id="house-calendar">
+              </div>
+             <div class="am-form-inline" style="margin-bottom:4px;">
+              <div class="am-form-group">
+                <input type="text"  value=""class="am-form-field" id="house-start-datetime" name="house-start-datetime" placeholder="开始日期" maxlength="10" readonly />
+             </div>
+             <!--
+             <div class="am-form-group">
+                <input type="tel" min="2015" max="2015" style="width:100px;" value="2015" class="am-number" id="house-start-year" name="house-start-year"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <input type="tel" min="1" max="12" style="width:80px;" value="1" class="am-number" id="house-start-month" name="house-start-month"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <input type="tel" min="1" max="31" style="width:80px;" value="1" class="am-number" id="house-start-date" name="house-start-date"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             -->
+             <div class="am-form-group">
+                <em style="padding-left:4pxpx;" class="b">至</em>
+             </div>
+           
+           </div>
+
+           <div class="am-form-inline">
+             <div class="am-form-group">
+                <input name="house-end-datetime" type="text"class="am-form-field" id="house-end-datetime" placeholder="结束日期"  value="" maxlength="10" readonly />
+             </div>
+             <!--
+             <div class="am-form-group">
+                <input type="tel" min="2015" max="2015" style="width:100px;" value="2015" class="am-number" id="house-end-year" name="house-end-year"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <input type="tel" min="1" max="12" style="width:80px;" value="1" class="am-number" id="house-end-month" name="house-end-month"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <input type="tel" min="1" max="31" style="width:80px;" value="1" class="am-number" id="house-end-date" name="house-end-date"/>
+             </div>
+             <div class="am-form-group">
+                <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+             </div>
+             <div class="am-form-group">
+                <em style="padding-left:4pxpx;" class="b"></em>
+             </div>
+           -->
+           </div>
+          </span>
+<!--
+        	<table class="am-table am-orderList" style="margin-bottom:0">
+            	<tr><td rowspan="2" class="b">入住时间</td><td>
+                <span class="am-fr">
+                <span class="am-margin-horizontal-xs am-number" id="house-form-order-detail-time-start-year">2015</span>
+             <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+            <span class="am-margin-horizontal-xs am-number" id="house-form-order-detail-time-start-month">03</span>
+            <em class="am-icon am-icon-play am-icon-sm am-text-color-green"></em>
+            <span class="am-margin-horizontal-xs am-number" id="house-form-order-detail-time-start-date">26</span>
+            <em class="am-icon am-icon-play am-icon-sm am-text-color-green"></em><em style="padding-left:4pxpx;" class="b">至</em>
+            </span>                
+                </td></tr>
+            </table>
+            <table class="am-table am-orderList" style="margin-bottom:0">
+            	<tr>
+                  <td>
+                <span class="am-fr" style="padding-right:16px;">
+                <span class="am-margin-horizontal-xs am-number" id="house-form-order-detail-time-end-year">2015</span>
+             <em class="am-icon-sm am-icon am-icon-play am-text-color-green"></em>
+            <span class="am-margin-horizontal-xs am-number" id="house-form-order-detail-time-end-month">03</span>
+            <em class="am-icon am-icon-play am-icon-sm am-text-color-green"></em>
+            <span class="am-margin-horizontal-xs am-number" id="house-form-order-detail-time-end-date">28</span>
+            <em class="am-icon am-icon-play am-icon-sm am-text-color-green"></em><em></em></span>
+                </td></tr>
+            </table>
+          -->
+        </div>
+    </li>
+     
+    <li class="am-cf" style="margin-bottom:4px">
+    	<div class="am-padding-horizontal-sm">
+        	  <span class="am-fl b">入住人数</span>
+            <span class="am-fr am-form-inline">
+              <div class="am-form-group">
+              <input type="tel" min="1" max="20" style="width:60px;" value="1" class="am-number" id="house-qty" name="house-qty"/>
+              </div>
+              <div class="am-form-group">
+              <span class="b">人</span>
+              </div>
+            </span>
+        </div>
+    </li>
+    
+    
+    <li class="am-cf" style="margin-bottom:4px">
+    	<div class="am-padding-horizontal-sm b" style="margin-bottom:4px">个人信息</div>
+      <div class="am-padding-horizontal-sm" style="margin-bottom:4px">
+          <input type="text" name="house-username" id="house-username" class="am-form-field" placeholder="用户名"/>
+      </div>
+      <div class="am-padding-horizontal-sm" style="margin-bottom:4px">
+          <input type="tel" name="house-phone" id="house-phone" class="am-form-field" placeholder="手机号"/>
+      </div>
+      <div class="am-padding-horizontal-sm" style="margin-bottom:0px">
+          <input type="tel" name="house-userid" id="house-userid" class="am-form-field" placeholder="身份证"/>
+      </div>
+    </li>
+
+    <!--
+     <li class="am-cf" style="margin-bottom:4px">
+      <div class="am-padding-horizontal-sm"> 
+          <div class="b" style="margin-bottom:4px">个人信息</div>
+       
+            <table class="am-table" style="border:none;">
+            <tr >
+            <td><span class="b">用户名</span></td>
+            <td><input type="text" name="house-username" id="house-username" class="am-form-field"/></td>
+            <td><span class="b">手机号</span></td>
+            <td><input type="text" name="house-phone" id="house-phone" class="am-form-field"/></td>
+            </tr>
+            <tr>
+            <td><label for="house-userid">身份证</label></td>
+            <td><input type="text" name="house-userid" id="house-userid" class="am-form-field"/></td>
+            <td></td><td></td>
+            </tr>
+            </table>
+            
+        </div>
+    </li>
+  -->
+   
+     <div class="am-cf am-margin-horizontal-sm am-padding-horizontal-sm" style="margin:2px 0px 2px 0px;">
+             <a href="${back}">
+               <span class="am-fr am-text-danger am-text-middle">
+                 <em  class="am-text-danger am-margin-right-xs">注册会员，享受更多优惠</em>
+                 <i class="am-icon-chevron-right am-text-danger"></i>
+               </span>
+             </a>
+   </div>
+    
+  </ul>
+  
+   
+   <ul class="am-list am-list-static am-text-sm" style="margin:0">
+  	<li class="am-cf" style="margin-bottom:4px">
+   <div class="am-g am-cf">
+   	<div class="col-sm-1"><span class="b">留言:</span></div>
+    <div class="col-sm-11"><textarea class="" rows="5" id="house-last-remark" placeholder="有特别要求"></textarea></div>
+   </div>
+   </li>
+   </ul>
+   
+  </form>
+      
+   <div class="am-margin-horizontal-sm">
+      <div class="am-margin-top-lg">
+        <a href="javascript:void(0);" id="house-form-order-detail-btn-submit" class="am-btn am-btn-success am-bottom-single-btn">提交</a>
+      </div>
+   </div>
+    
+ </div>
+</div>
 
 <script src="js/jquery.min.js"></script> 
 <script src="js/amazeui.min.js"></script> 
 <script src="js/hammer.min.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script> 
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="js/jquery-ui.js"></script>
 <script src="js/app.js"></script> 
 <script src="js/pay.submit.js"></script>
 </body>

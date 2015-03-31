@@ -86,12 +86,12 @@
 			dataType : "JSON",
 			data : {webcode:"fangjiwei",uid:2,account:13800138000,password:111,action:"login"},
 			success : function(data){
-				$.each(data,function(){
-					alert(data.msg);
-					localStorage.setItem(username,username);
-					localStorage.setItem(password,pwd);
-					window.location.href="userCenter.html";
-				});
+				 alert(data.msg);
+				 localStorage.setItem("username", username);
+				 localStorage.setItem("password", pwd);
+				 localStorage.setItem("user", data.user);
+				 localStorage.setItem("signature", data.signature);
+				 window.location.href="userCenter.html";
 			},
 			error : function() {
 				alert(1);
@@ -137,9 +137,10 @@
           action:"regist"
       },
       success : function(data){
-        $.each(data,function(){
-          console.log(data);
-        });
+        
+          alert(data.msg);
+          localStorage.setItem("user", data.user);
+		  localStorage.setItem("signature", data.signature);
       },
       error : function(){
         alert(1);
