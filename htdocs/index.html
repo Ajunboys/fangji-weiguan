@@ -31,7 +31,28 @@
 <script src="js/jquery.hammer.js"></script>
 <script src="js/swipePanel.js"></script>
 <script>
-    var base = 'http://platform.91zmt.com';
+	var base = 'http://platform.91zmt.com';
+	//获得地址栏参数
+	function GetQueryString(name)
+	{
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r!=null) return unescape(r[2]); return null;
+	}
+
+	var refStr = GetQueryString('ref');
+	if(refStr!=null && refStr!=''){
+		$.ajax({
+        	url:base + '/interface/markRef',
+        	data:{
+            	webcode:'fangjiwei',
+            	ref: refStr
+        	},
+        	cache:false,
+        	type:'POST'
+    	});
+	}
+
     $.ajax({
         url:base + '/interface/webcontent',
         data:{
