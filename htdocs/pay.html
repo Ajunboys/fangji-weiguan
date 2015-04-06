@@ -21,8 +21,8 @@
 </head>
 
 <body>
-<div id="food-form-order">
-<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block  am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>
+<div id="wap_pay-form">
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>
 <a href="thirdPage.html" class="am-header-right am-block am-pos-ab am-text-sm" style="color:white"></a>
 支付订单</div>
 <div class="am-container am-container-gray am-padding-vertical-sm">
@@ -40,7 +40,7 @@
           </td>
       </tr>
       <tr>
-      	<td colspan="3" style="border-top:0; border-bottom:#eee 1px solid;"><div class="am-fr"><em class="am-icon-minus-square am-icon-sm"></em><span class="am-margin-horizontal-xs am-number">1</span><em class="am-icon-plus-square am-icon-sm"></em></div></td>
+        <td colspan="3" style="border-top:0; border-bottom:#eee 1px solid;"><div class="am-fr"><em class="am-icon-minus-square am-icon-sm"></em><span class="am-margin-horizontal-xs am-number">1</span><em class="am-icon-plus-square am-icon-sm"></em></div></td>
       </tr>
   </table>
   <table class="am-table am-orderList">
@@ -57,46 +57,51 @@
           </td>
       </tr>
       <tr>
-      	<td colspan="3" style="border-top:0"><div class="am-fr"><em class="am-icon-minus-square am-icon-sm"></em><span class="am-margin-horizontal-xs am-number">1</span><em class="am-icon-plus-square am-icon-sm"></em></div></td>
+        <td colspan="3" style="border-top:0"><div class="am-fr"><em class="am-icon-minus-square am-icon-sm"></em><span class="am-margin-horizontal-xs am-number">1</span><em class="am-icon-plus-square am-icon-sm"></em></div></td>
       </tr>
   </table>
   <ul class="am-list am-list-static am-text-sm" style="margin:0">
-  	<li class="am-cf">
-    	<div class="am-padding-horizontal-sm">
-        	<span class="am-fl">总价：</span><span class="am-fr am-text-danger">640元</span>
+    <li class="am-cf">
+      <div class="am-padding-horizontal-sm">
+          <span class="am-fl">总价：</span><span class="am-fr am-text-danger">640元</span>
         </div>
     </li>
     <li class="am-cf">
-    	<div class="am-padding-horizontal-sm">
-    		<span class="am-fl">优惠：<i class="am-text-color-gray">(金卡7折)</i></span><span class="am-fr am-text-danger">省192元</span>
+      <div class="am-padding-horizontal-sm">
+        <span class="am-fl">优惠：<i class="am-text-color-gray">(金卡7折)</i></span><span class="am-fr am-text-danger">省192元</span>
         </div>
     </li>
     <li class="am-cf">
-    	<div class="am-padding-horizontal-sm">
-        	<span class="am-fl">应付：</span><span class="am-fr am-text-danger">448元</span>
+      <div class="am-padding-horizontal-sm">
+          <span class="am-fl">应付：</span><span class="am-fr am-text-danger">448元</span>
         </div>
     </li>
   </ul>
   <div class="am-graybar">支付方式</div>
   <form class="am-form">
   <ul class="am-list am-list-static am-text-sm" style="margin:0">
-  	<li class="am-cf">
-    	<div class="am-padding-horizontal-sm" style="height:24px;"><input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
+    <li class="am-cf">
+      <div class="am-padding-horizontal-sm" style="height:24px;">
+          <img src="i/pay1.png" style="height:24px;"/><input class="am-fr" type="radio" name="radio1" value="alipay" data-am-ucheck>
         </div>
     </li>
     <li class="am-cf">
-    	<div class="am-padding-horizontal-sm">
-    		<img src="i/pay2.png" style="height:24px;"/><span class="am-padding-horizontal-sm" style="height:24px;"><img src="i/pay1.png" style="height:24px;"/></span>
-    		<input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
+      <div class="am-padding-horizontal-sm">
+        <img src="i/pay2.png" style="height:24px;"/><input class="am-fr" type="radio" name="radio1" value="" data-am-ucheck>
         </div>
     </li>
   </ul>
   </form>
-  <div class="am-margin-top-sm"><a href="orderDetail.html" class="am-btn am-btn-success am-bottom-single-btn">确认支付</a></div>
+  <div class="am-margin-top-sm"><a id="wap_pay-form-submit-btn" href="javascript:void(0);" class="am-btn am-btn-success am-bottom-single-btn">确认支付</a></div>
 </div>
+</div>
+<!--house-form-order-->
+<div id="food-form-order">
+
 </div>
 
-<div id="house-form-order">
+<!--house-form-order-->
+<div id="food-house-form-order">
 <div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs am-text-color-white"></i></a> 
   <div class="am-btn-group" data-am-button>预订</div>
 </div>
@@ -107,6 +112,7 @@
 <script src="js/imagesloaded.pkgd.min.js"></script>
 <script src="js/amazeui.min.js"></script> 
 <script src="js/hammer.min.js"></script>
+<script src="js/pingpp_pay.js"></script>
 <script src="js/app.js"></script>
 <script src="js/pay.js"></script>
 </body>
