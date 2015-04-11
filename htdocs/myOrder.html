@@ -27,14 +27,14 @@
 <div class="am-container am-container-gray am-userCenter">
   <div class="am-tabs" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs am-avg-sm-4 am-thumbnails am-tuangou-tabs-nav">
-      <li><a href="#tab1">未付款</a></li>
-      <li><a href="#tab2">待消费</a></li>
-      <li><a href="#tab3">待评价</a></li>
-      <li><a href="#tab4">已评价</a></li>
+      <li><a href="#tab1" id="payment">未付款</a></li>
+      <li><a href="#tab2" id="success">待消费</a></li>
+      <li><a href="#tab3" id="finish-no-assess">待评价</a></li>
+      <li><a href="#tab4" id="finish-assess">已评价</a></li>
     </ul>
     <div class="am-tabs-bd">
       <div class="am-tab-panel am-active" id="tab1">
-      	<table class="am-table am-orderList">
+      	<table class="am-table am-orderList" id="payment-order-list">
         	<tr>
             	<td><div class="am-g-face"><a href="orderDetail.html"><img src="i/temp.png"/></a></div></td>
             	<td>
@@ -64,7 +64,7 @@
         </table>
       </div>
       <div class="am-tab-panel" id="tab2">
-      	<table class="am-table am-orderList">
+      	<table class="am-table am-orderList" id="success-order-list">
         	<tr>
             	<td><div class="am-g-face"><a href="orderDetail.html"><img src="i/temp.png"/></a></div></td>
             	<td>
@@ -96,7 +96,7 @@
         </table>
       </div>
       <div class="am-tab-panel" id="tab3">
-      	<table class="am-table am-orderList">
+      	<table class="am-table am-orderList" id="finish-not-assess-order-list">
         	<tr>
             	<td><div class="am-g-face"><a href="orderDetail.html"><img src="i/temp.png"/></a></div></td>
             	<td>
@@ -126,7 +126,7 @@
         </table>
       </div>
       <div class="am-tab-panel" id="tab4">
-      	<table class="am-table am-orderList">
+      	<table class="am-table am-orderList" id="finish-assess-order-list">
         	<tr>
             	<td><div class="am-g-face"><a href="orderDetail.html"><img src="i/temp.png"/></a></div></td>
             	<td>
@@ -162,6 +162,6 @@
 <script src="js/amazeui.min.js"></script> 
 <script src="js/hammer.min.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script> 
-<script src="js/app.js"></script> 
+<script src="js/orders.js"></script> 
 </body>
 </html>

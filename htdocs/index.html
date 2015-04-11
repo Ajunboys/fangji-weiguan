@@ -15,44 +15,58 @@
 <meta name="x5-fullscreen" content="true">
 <meta name="browsermode" content="application">
 <meta name="x5-page-mode" content="app">
-<title>放鸡岛微官网</title>
+<title>无标题文档</title>
 <link rel="stylesheet" href="css/amazeui.min.css"/>
 <link rel="stylesheet" href="css/app.css"/>
+
+
+<link rel="stylesheet" type="text/css" href="css/menu.stylesheet.css">
+<link rel="stylesheet" type="text/css" href="css/menu.font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/menu.reset.css">
+<link rel="stylesheet" type="text/css" href="css/menu.animation.css">
+<link rel="stylesheet" href="css/menu.css"/>
+<link rel="stylesheet" type="text/css" href="css/menu.color.css">
+
 </head>
 
 <body>
-<a href="javascript:void(0);" class="swipePanel-vitem-goto" onClick="secondPage();"><img src="i/goto.png"></a>
+<a href="javascript:void(0);" id="application-menu-icon" 
+style="position:fixed;right:25px;top:25px;width:12.5%;z-index:9;" onClick="secondPage();"><img src="i/goto.png"></a>
 <div id="swipePanel" class="swipePanel">
-<div class="swipePanel-nav2"></div>
+  <!--<div class="swipePanel-hitem">
+    <div class="swipePanel-vitem"> <img src="i/a3.jpg"/> </div>
+    <div class="swipePanel-vitem"> <img src="i/a3.jpg"/> </div>
+  </div>
+  <div class="swipePanel-hitem">
+    <div class="swipePanel-vitem"> <img src="i/a1.jpg"/> </div>
+    <div class="swipePanel-vitem"> <img src="i/a1.jpg"/> </div>
+  </div>
+  <div class="swipePanel-hitem">
+    <div class="swipePanel-vitem"> <img src="i/a2.jpg"/> </div>
+    <div class="swipePanel-vitem"> <img src="i/a2.jpg"/> </div>
+  </div>
+  <div class="swipePanel-hitem">
+    <div class="swipePanel-vitem"> <img src="i/a4.jpg"/> </div>
+    <div class="swipePanel-vitem"> <img src="i/a4.jpg"/> </div>
+  </div>
+  <div class="swipePanel-nav">
+    <div class="am-g">
+      <div class="am-u-sm-3 swipePanel-nav-item"> <img src="i/nav1.png"/><img src="i/nav1-f.png"/> </div>
+      <div class="am-u-sm-3 swipePanel-nav-item"> <img src="i/nav2.png"/><img src="i/nav2-f.png"/> </div>
+      <div class="am-u-sm-3 swipePanel-nav-item"> <img src="i/nav3.png"/><img src="i/nav3-f.png"/> </div>
+      <div class="am-u-sm-3 swipePanel-nav-item"> <img src="i/nav4.png"/><img src="i/nav4-f.png"/> </div>
+    </div>
+  </div>-->
 </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/amazeui.min.js"></script>
 <script src="js/hammer.min.js"></script>
 <script src="js/jquery.hammer.js"></script>
 <script src="js/swipePanel.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/menu.dropdown.js"></script>
 <script>
-	var base = 'http://platform.91zmt.com';
-	//获得地址栏参数
-	function GetQueryString(name)
-	{
-		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-		var r = window.location.search.substr(1).match(reg);
-		if (r!=null) return unescape(r[2]); return null;
-	}
-
-	var refStr = GetQueryString('ref');
-	if(refStr!=null && refStr!=''){
-		$.ajax({
-        	url:base + '/interface/markRef',
-        	data:{
-            	webcode:'fangjiwei',
-            	ref: refStr
-        	},
-        	cache:false,
-        	type:'POST'
-    	});
-	}
-
+    var base = 'http://platform.91zmt.com';
     $.ajax({
         url:base + '/interface/webcontent',
         data:{
@@ -97,10 +111,17 @@
         
     	$('#swipePanel').swipePanel();
     }
+	var menuItems = [{name:"menu-item-sort", id:"menu-item-sort", text: "排列(列表)"},
+	 {name:"menu-item-map", id:"menu-item-map", text: "地图导览"},
+	 {name:"menu-item-member", id:"menu-item-member", text: "会员"},
+	 {name:"menu-item-help-tel", id:"menu-item-help-tel", text: "求助热线"} ];
+	appMenu.setBelongWidthContainer("application-menu-icon").setItems(menuItems,app.menuType.text);
     function secondPage(){
     	var cid = $('.swipePanel-nav-item.active').attr('cid');
     	var url="secondPage.html?cid="+cid;
-    	window.location=url;
+    	//window.location=url;
+		if(!!!appMenu.isShown)  appMenu.resetPosition().show() ;
+		else appMenu.hide();	
     }
 </script>
 </body>
