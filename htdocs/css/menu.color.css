@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+.nav a, .nav i, .nav p{
+	color:#ffffff;
+}
+.nav h3, .nav h4{
+	color:#333333;
+}
+.nav em{
+	color:#FF0000;
+}
+.nav{ /*BACK COLOR*/
+	/* 	background: #ffffff;Old browsers */
+	 
+	/*background: -moz-linear-gradient(top,  rgba(211, 211, 211, 0.21) 80%,rgba(136, 129, 129, 0.45) 100%); FF3.6+ */ 
+	
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(80%,rgba(211, 211, 211, 0.21)), color-stop(100%,rgba(136, 129, 129, 0.45)));  Chrome,Safari4+ */
+	/*background: -webkit-linear-gradient(top,  rgba(211, 211, 211, 0.21) 80%,rgba(136, 129, 129, 0.45) 100%);  Chrome10+,Safari5.1+ */
+	/*background: -o-linear-gradient(top,  rgba(211, 211, 211, 0.21) 80%,rgba(136, 129, 129, 0.45) 100%);  Opera 11.10+ */
+	/*background: -ms-linear-gradient(top,  rgba(211, 211, 211, 0.21) 80%,rgba(136, 129, 129, 0.45) 100%);  IE10+ */
+	/*background: linear-gradient(to bottom,  rgba(211, 211, 211, 0.21) 80%,rgba(136, 129, 129, 0.45) 100%);  W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );  IE6-9 */
+}
+.nav li{                                 /*PRIMARY COLOR - (For each menu must change)*/
+	                                 background-color: rgba(0, 0, 0, 0.31);             
+}
+.nav li:hover > a{
+	background-color:rgba(51,51,51,.5);
+}
+img{
+	background-color:rgba(255,255,255,.3);
+}
+.one li a i{
+	color:#CCCCCC;
+}
+.one li a:hover i{
+	color:#FFFFFF;
+}
+#contact li:hover a{
+	background-color:transparent;
+}

@@ -1,0 +1,325 @@
+@charset "utf-8";
+/*** General ********************/
+.nav li {
+	list-style: none;
+}
+.nav i {
+	display:block;
+}
+.nav a{
+	font-family:'exodemi_bold', Geneva, sans-serif;
+	display:block;
+	text-decoration:none;
+}
+.nav p, .nav h3, .nav h4, .one li a {
+	font-family:'titilliumregular', Palatino, Georgia, serif;
+}
+.nav a, .nav h3, .nav h4{
+	text-transform:uppercase;
+}
+.nav p{
+	font-size:14px;
+	text-align:justify;
+	line-height:21px;
+}
+.nav h3{
+	font-size:18px;
+}
+.nav h4{
+	font-size:17px;
+}
+.nav img{
+	padding:10px;
+	
+	box-shadow: 1px 1px 4px rgba(102,102,102,.4);
+	-webkit-box-shadow: 1px 1px 4px rgba(102,102,102,.4);
+	-moz-box-shadow: 1px 1px 4px rgba(102,102,102,.4);
+}
+ 
+
+/* Start .nav Class *************/
+.nav {
+	 
+	
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+.nav li {
+	position:relative;
+	float: none;
+	height: 40px;
+	margin-bottom:1px;	
+}
+.nav li:last-child{
+	border-bottom:none;
+}
+.nav li:hover {
+	cursor: pointer;
+}
+.nav li a{
+	float: left;
+	width:100%;
+	padding: 8px 0px;
+	overflow: hidden;
+	
+	font-size: 14px;
+	text-align:right;
+	letter-spacing: 0.1em;
+	
+	transition:background-color .6s;
+	-webkit-transition:background-color .6s;
+	-moz-transition:background-color .6s;
+	-o-transition:background-color .6s;
+	-ms-transition:background-color .6s;
+}
+.nav li a i {
+	font-size: 22px;
+	padding: 0 6px;
+}
+/* End .nav Class *************/
+
+/* Start .one Class *************/
+.nav .one {
+	position:absolute;
+	
+	top: 0;
+	left: 100%;
+}
+.one li{
+	width:160px;
+	height:30px;
+	float: none;
+	margin:0;
+	
+	border-bottom:1px solid rgba(255,255,255,.4);
+}
+.one > li a{
+	padding:7px 0 7px 14px;
+	width:146px;
+	
+	text-align:left;
+	text-transform:capitalize;
+	font-size:12px;	
+}
+.one h3{
+	padding:3px 5px 2px 8px;
+}
+.one li i.icon-chevron-right{
+	float:right;
+	margin:3px 10px 0 0;
+	font-size:12px;
+}
+.nav li:hover ul.one{
+	-webkit-animation: zoomIn .4s 1;
+	animation: zoomIn .4s 1;
+}
+/* End .one Class *************/
+
+/* Start .one #sub-menu *************/
+.one#menu li{
+	margin-left:5px;
+}
+.one #sub-menu li{
+	margin-left:0px;
+}
+/* End .one #sub-menu ************/
+
+/*** Start Commons ***************/
+#home li,
+#about li,
+#links > li,
+#columns li,
+#contact li{
+	padding: 10px;
+	margin-left:5px;
+	
+	border-radius:0 3px 3px 0;
+	-webkit-border-radius:0 3px 3px 0;
+	-moz-border-radius:0 3px 3px 0;
+}
+/*** End Commons ******************/
+
+/*** Start Home *******************/
+#home {
+	top:-5px;
+}
+#home li {
+	width: 250px;
+	height: 280px;
+}
+#home li img{
+	float:left;
+	margin:5px 12px 10px 5px;
+}
+#home li p{
+	padding: 5px;
+	font-size:13px;
+}
+#home li p#p-first{
+	border-bottom:1px solid rgba(51,51,51,.2);
+	margin-bottom:15px;
+	padding-bottom:15px;
+}
+/*** End Home *******************/
+
+/*** Start About ****************/
+#about {
+	top:-50px;
+}
+#about li {
+	width: 420px;
+	height: 280px;
+}
+#about li p{
+	padding: 5px;
+}
+#about img {
+	width:120px;
+	height:140px;
+	float: right;
+	margin: 60px 5px 40px 15px;
+}
+/*** End About ********************/
+
+/*** Start links ******************/
+#links {
+	top:-90px;
+}
+#links > li {
+	width: 400px;
+	height: 280px;
+}
+#links li i {
+	font-size: 12px;
+}
+#links .link-block{
+	width: 43%;
+	float: left;
+	padding: 0 2px 10px 2px;
+	margin: 7px 0 7px 15px;
+}
+#links .link-block h4 {
+	margin:2px 0 7px 4px;
+	padding:1px 0 8px 7px;
+	border-bottom: 1px solid rgba(51,51,51,.2);
+}
+#links .link-block li{
+	height:18px;
+	border:none;
+}
+#links .link-block li a {
+	height:18px;
+	padding: 0 0 0 6px;
+	
+	font-size: 12px;
+	text-transform:capitalize;
+	
+	border:none;
+}
+/*** End links ********************/
+
+/*** Start Columns ****************/
+#columns {
+	top: -130px;
+}
+#columns li{
+	width:600px;
+	height:280px;
+}
+#columns li h4{
+	clear:left;
+	display:block;
+	padding:8px 0 4px 15px;
+}
+#columns li h4 i{
+	padding-right:7px;
+}
+.block75,
+.block50,
+.block25{
+	float:left;
+	padding:3px 10px;
+	margin:0 5px;
+}
+.block75{
+	width:70%;
+}
+.block50{
+	width:45%;
+}
+.block25{
+	width:20%;
+}
+/*** End Columns ******************/
+
+/*** Start Contact ****************/
+#contact{
+	top: -255px;
+}
+#contact li{
+	width:230px;
+	height:280px;
+	padding:10px 15px;
+}
+#contact li input{
+	height:20px;
+}
+#contact li textarea{
+	height:60px;
+}
+#contact li input,
+#contact li textarea{
+	width:95%;
+	border:5px solid #CCCCCC;
+	
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	
+	transition:border .8s;
+	-webkit-transition:border .8s;
+	-moz-transition:border .8s;
+	-o-transition:border .8s;
+	-ms-transition:border .8s;
+}
+#contact li input:focus,
+#contact li textarea:focus{
+	border:5px solid #666666;
+}
+#contact li p{
+	display:block;
+	padding:1px 0;
+}
+#contact li input#send{
+	width:70px;
+	height:27px;
+	margin-top:5px;
+	margin-left:16px;
+	border:none;	
+}
+/*Social Network*/
+ h4#h4-social {
+	margin: 8px 0 3px 5px;
+	padding-top:4px;
+	border-top:1px solid rgba(51,51,51,.2);
+}
+#contact li a {
+	height: 40px;
+	width: 40px;
+	padding: 0;
+	margin: 0 3px;
+	float: left;
+}
+#contact li a i {
+	margin-left: 5px;
+	padding: 0;
+	font-size: 25px;
+		
+	transition: color .6s;
+	-webkit-transition: color .6s;
+	-moz-transition: color .6s;
+	-o-transition: color .6s;
+	-ms-transition: color .6s;
+}
+/* End Contact *****************/

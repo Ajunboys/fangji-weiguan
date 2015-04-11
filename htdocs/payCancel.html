@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection"content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta name="browsermode" content="application">
+<meta name="x5-page-mode" content="app">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/amazeui.min.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+</head>
+
+<body>
+<div id="pay-form-result-success">
+<div class="am-header am-text-center am-header-user-gray am-text-lg" data-am-sticky="{top:0}"> <a href="javascript:history.go(-1);" class="am-header-left am-block am-pos-ab"><i class="am-icon-chevron-left am-icon-xs" style="color:white;"></i></a>
+<a href="thirdPage.html" class="am-header-right am-block am-pos-ab am-text-sm" style="color:white"></a>
+取消支付</div>
+  
+<div class="am-container am-container-gray am-padding-vertical-sm" id="appListView">
+
+      <div class="am-panel am-panel-default" style="margin-bottom:4">
+        <div class="am-panel-bd am-text-sm">
+            <div class="am-text-danger am-text-xl am-text-center">
+                <div style="margin:.4rem 8rem;">
+                 <img src="i/fx2.png">
+                </div>
+                订单已取消支付!
+            </div>
+            <div class="am-panel-bd am-text-sm am-pos-re">
+            	<div><b>你的订单号：</b><span id="order-id">123412341234</span></div>
+                <div>
+                   <span class="am-fl"><b >请留意发送到您手机的消费码</b></span> 
+                   <span class="am-fr am-text-color-gray am-text-xs">收不到, 在发一次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="am-panel am-panel-default" style="margin-bottom:0">
+        <div class="am-panel-bd am-text-sm">
+            <div><b>长按二维码点击关注放鸡岛, 会员享受更多优惠</b></div>
+            <div class="am-text-center">
+                <div style="margin:.4rem 8rem;">
+                  <img src="i/ewm.png">
+                </div>
+              </div>             
+        </div>
+    </div>
+    
+    <div class="am-panel am-text-center">
+    <a href="javascript:history.go(-1);" class="am-text-color-gray">返回</a>
+    <a href="orderDetail.html" id="back-pay-again" class="am-text-color-gray">再次购买</a>
+    </div> 
+   
+</div>
+
+
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/amazeui.min.js"></script> 
+<script src="js/hammer.min.js"></script>
+<script>
+(function($){
+$("#back-pay-again").attr("href","orderDetail.html"+window.location.search);
+})(jQuery);
+</script> 
+</body>
+</html>
