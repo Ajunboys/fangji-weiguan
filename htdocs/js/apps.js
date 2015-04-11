@@ -84,7 +84,7 @@
 			url : base+"/interface/signup",
 			type : "post" ,
 			dataType : "JSON",
-			data : {webcode:"fangjiwei",uid:2,account:13800138000,password:111,action:"login"},
+			data : {webcode:"fangjiwei",uid:2,account:username,password:pwd,action:"login"},
 			success : function(data){
 				 alert(data.msg);
 				 localStorage.setItem("username", username);
@@ -132,8 +132,8 @@
       data : {
           webcode:"fangjiwei",
           uid:2,
-          account:13800138000,
-          password:111,
+          account:username,
+          password:pwd,
           action:"regist"
       },
       success : function(data){
